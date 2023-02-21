@@ -1,0 +1,10 @@
+CREATE OR REPLACE TRIGGER ANAGRAFICI_TC
+AFTER INSERT OR UPDATE OR DELETE
+ON ANAGRAFICI
+BEGIN
+   -- Exec PostEvent Check REFERENTIAL Integrity
+   Integritypackage.Exec_PostEvent;
+END;
+/
+
+

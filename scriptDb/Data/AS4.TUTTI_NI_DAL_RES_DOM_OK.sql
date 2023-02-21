@@ -1,0 +1,5 @@
+﻿Insert into TUTTI_NI_DAL_RES_DOM_OK
+   (NI, DAL)
+ Values
+   (1, TO_DATE('01/01/1900 00:00:00', 'MM/DD/YYYY HH24:MI:SS'));
+COMMIT;

@@ -1,0 +1,32 @@
+CREATE TABLE TIPI_CONTATTO
+(
+  ID_TIPO_CONTATTO      NUMBER                  NOT NULL,
+  DESCRIZIONE           VARCHAR2(40 BYTE)       NOT NULL,
+  UNICO                 VARCHAR2(2 BYTE)        DEFAULT 'NO'                  NOT NULL,
+  IMPORTANZA            NUMBER,
+  TIPO_SPEDIZIONE       VARCHAR2(100 BYTE),
+  VERSION               NUMBER,
+  UTENTE_AGGIORNAMENTO  VARCHAR2(8 BYTE),
+  DATA_AGGIORNAMENTO    DATE
+)
+TABLESPACE AS4
+PCTUSED    0
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MAXSIZE          UNLIMITED
+            MINEXTENTS       1
+            MAXEXTENTS       UNLIMITED
+            PCTINCREASE      0
+            BUFFER_POOL      DEFAULT
+           );
+
+COMMENT ON TABLE TIPI_CONTATTO IS 'TICO - Tipi contatto';
+
+COMMENT ON COLUMN TIPI_CONTATTO.IMPORTANZA IS 'Valori: 0 alta - 99 bassa';
+
+
+

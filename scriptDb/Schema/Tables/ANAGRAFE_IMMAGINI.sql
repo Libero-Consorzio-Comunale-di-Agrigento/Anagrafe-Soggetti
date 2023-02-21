@@ -1,0 +1,20 @@
+CREATE TABLE ANAGRAFE_IMMAGINI
+(
+  NI           NUMBER(8)                        NOT NULL,
+  ID_IMMAGINE  NUMBER                           NOT NULL
+)
+TABLESPACE AS4
+PCTUSED    0
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            MAXSIZE          UNLIMITED
+            PCTINCREASE      0
+            BUFFER_POOL      DEFAULT
+           );
+
+COMMENT ON TABLE ANAGRAFE_IMMAGINI IS 'Archivio ANAGRAFE_IMMAGINI';
+
+
+

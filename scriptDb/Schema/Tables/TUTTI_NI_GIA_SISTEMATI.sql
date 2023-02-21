@@ -1,0 +1,16 @@
+CREATE TABLE TUTTI_NI_GIA_SISTEMATI
+(
+  NI  NUMBER
+)
+TABLESPACE AS4
+PCTUSED    0
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            MAXSIZE          UNLIMITED
+            PCTINCREASE      0
+            BUFFER_POOL      DEFAULT
+           );
+
+
