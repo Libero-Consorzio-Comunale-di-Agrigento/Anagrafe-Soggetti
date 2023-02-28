@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Implementation-Title: anagrafica
+Implementation-Version: 4.4.3.15_495
+Built-By: jenkins
+Specification-Vendor: Gruppo Finmatica
+Specification-Title: anagrafica
+Built-On: a1424a1a6c61/10.0.0.218
+Implementation-Vendor: Gruppo Finmatica
+Git-Commit: d88cadb75d8f6d47305e84ce490e111e0aa34a13
+Git-Branch: master
+Build-Java: 1.8.0_221 (Oracle Corporation)
+Built-With: gradle-4.10.3, groovy-2.4.15
+Build-Tag: jenkins-AT-Anagrafica-master-495
+Build-Time: 2023-01-26T13:57:24+0100
+Build-Url: https://jenkins.finmatica.it/job/AT/job/Anagrafica/job/mast
+ er/495/
+Specification-Version: 4.4.3.15
+
