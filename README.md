@@ -15,7 +15,7 @@ Il repository è suddiviso nelle seguente cartelle:
 ### Prerequisiti
 - Java JDK versione 7 o superiore
 - Database Oracle versione 10 o superiore
-- Apache Tomcat 7.0 dalla minor 47 alla 109
+- Apache Tomcat 7.0 dalla minor 47 alla 109 o 9.0
 
 ### Dipendenze
 - Libreria Apache CXF per la creazione di servizi SOAP e relative API
