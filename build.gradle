@@ -1,0 +1,162 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.14.RELEASE'
+        soapUiVersion = "5.1.3"
+        gebVersion = "1.0"
+        seleniumVersion = "3.141.59"
+    }
+    repositories {
+        maven {
+            url "https://nexus.finmatica.it/repository/maven-public"
+        }
+        mavenLocal()
+    }
+    dependencies {
+        classpath 'it.finmatica.gradle:gradle-ci-plugin:2.0-SNAPSHOT'
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+}
+
+apply plugin: 'fin.gradle-ci-plugin'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'war'
+apply plugin: 'groovy'
+
+sourceCompatibility = '1.7'
+targetCompatibility = '1.7'
+
+bootRepackage {
+    enabled = false
+}
+
+sourceSets {
+    main {
+        groovy {
+            srcDirs = [
+                    "src/main/groovy",
+                    "src/main/controllers",
+                    "src/main/domain",
+                    "src/main/services",
+                    "src/main/viewmodels"
+            ]
+        }
+        java {
+            srcDirs = ["src/main/java"]
+        }
+    }
+    test {
+        groovy {
+            srcDirs = [
+                    "test/functional",
+                    "test/unit"
+            ]
+        }
+    }
+}
+
+war {
+    from('web-app/META-INF') {
+        include 'context.xml'
+        into('/META-INF/')
+    }
+    from('src/main/java/it/finmatica/as4/utils') {
+        include 'listacomuni.csv', 'listanazioni.csv'
+        into('/WEB-INF/classes/it/finmatica/as4/anagrafica/utils')
+    }
+    from('src/main/zul') {
+        include '**'
+        into('/WEB-INF/zul')
+    }
+    from('web-app/') {
+        include '/css/', '/images/', '/js/'
+        into('/')
+    }
+    from('web-app/WEB-INF/') {
+        include 'zk.xml'
+        into('WEB-INF/')
+    }
+}
+
+dependencies {
+
+    // dipendenze per spring-boot
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-jdbc'
+    compile 'org.springframework.boot:spring-boot-configuration-processor'
+
+    // per gestione Login e Utente
+    compile 'it.finmatica.spring:finmatica-amministrazione-database:4.5.12.9'
+    providedCompile 'it.finmatica:finmatica-accesscontrol:2.0.5'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile 'org.hibernate:hibernate-core:5.1.16.Final'
+    compile 'org.hibernate:hibernate-ehcache:5.1.16.Final'
+    compile 'org.hibernate:hibernate-entitymanager:5.1.16.Final'
+    compile 'org.codehaus.groovy:groovy-all:2.4.15'
+
+    compile 'log4j:log4j:1.2.17'
+
+    // dipendenze non necessarie per il war deployato
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+//    compile 'commons-net:commons-net:3.3'
+//    compile 'jaxen:jaxen:1.1.1'  ELIMINATA DIPENDENZA CHE SI PORTA DIETRO xerces e xalan
+    compile 'it.finmatica.spring:finmatica-anagrafe-soggetti-zk:4.4.3.12-SNAPSHOT'
+
+//    compile 'it.finmatica.spring:finmatica-gorm:1.3'
+    compile("it.finmatica.spring:finmatica-zk:3.0.0.0")
+    compile "it.finmatica.spring:finmatica-confapps:2.1"
+
+
+    // webservice cxf
+    compile('org.apache.cxf:cxf-spring-boot-starter-jaxws:3.1.12')
+
+    //Cleint http
+    compile 'org.apache.httpcomponents:httpclient:4.5.13'
+    // Estrazione in formato csv
+    compile 'org.apache.commons:commons-csv:1.10.0'
+
+    providedCompile 'commons-dbcp:commons-dbcp:1.4'
+//    providedCompile 'oracle:ojdbc14:10.2.0.5.0'
+    providedCompile 'com.oracle:ojdbc6:11.2.0.3'
+
+
+
+//    prima era providedRuntime
+//    compile 'xerces:xercesImpl:2.7.1'
+//    compile 'xalan:xalan:2.7.1'it.finmatica.gradle:gradle-ci-plugin:1.0-SNAPSHOT
+//    compile 'xalan:serializer:2.7.1'
+
+//    Per i test dei webservice con groovy-wslite
+    testCompile 'com.github.groovy-wslite:groovy-wslite:1.1.2'
+//    Per il test dei WebService con SoapUI
+    testCompile "com.smartbear.soapui:soapui:${soapUiVersion}"
+    testCompile 'org.spockframework:spock-grails-support:0.7-groovy-2.0'
+//    Test Geb
+    testCompile 'org.codehaus.groovy:groovy-backports-compat23:2.4.5'
+    testCompile "org.seleniumhq.selenium:selenium-api:${seleniumVersion}"
+    testCompile "org.seleniumhq.selenium:selenium-firefox-driver:${seleniumVersion}"
+    testCompile "org.seleniumhq.selenium:selenium-chrome-driver:${seleniumVersion}"
+    testCompile "org.seleniumhq.selenium:selenium-remote-driver:${seleniumVersion}"
+//    You usually only need one of these, but this project uses both
+    testCompile "org.gebish:geb-spock:${gebVersion}"
+    testCompile "org.gebish:geb-junit4:${gebVersion}"
+    testCompile 'org.apache.httpcomponents:httpcore:4.4.12'
+    testCompile 'org.apache.httpcomponents:httpclient:4.5.6'
+    testCompile 'commons-codec:commons-codec:1.10'
+    testCompile 'com.google.guava:guava:23.6-jre'
+
+    testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+    testCompile 'org.spockframework:spock-spring:1.1-groovy-2.4'
+    testCompile 'org.spockframework:spock-core:1.1-groovy-2.4'
+}
+
+// Pass system properties through to the test task so we can pass in the 'geb.env' property to run tests
+// in different browsers. Adapted from http://mrhaki.blogspot.com/2015/09/grails-goodness-passing-system.html
+
+configure(test) {
+//    systemProperties = System.properties + [ "geb.env": "remotechrome" ]
+    systemProperties = System.properties + ["geb.env": "remotefirefox"]
+//    systemProperties = System.properties + [ "geb.env": "chrome" ] // per test in locale con chrome
+//    systemProperties = System.properties + [ "geb.env": "firefox" ] // per test in locale con firefox
+}
+
+

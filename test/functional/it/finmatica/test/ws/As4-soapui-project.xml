@@ -1,0 +1,1725 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="ce4edee6-ca4f-437b-9fd2-2e994b587704" activeEnvironment="Default" name="TestCase_svi-at.finmatica" resourceRoot="${projectDir}" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="fe6d3446-2167-4187-ba4b-06878621024f" wsaVersion="NONE" name="ServiziAnagrafeServiceSoapBinding" type="wsdl" bindingName="{it.finmatica.as4.ws}ServiziAnagrafeServiceSoapBinding" soapVersion="1_2" anonymous="optional" definition="https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe?wsdl"><con:part><con:url>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ServiziAnagrafeService" targetNamespace="it.finmatica.as4.ws" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="it.finmatica.as4.ws" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="it.finmatica.as4.ws" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="checkRecapito" type="tns:checkRecapito"/>
+      <xs:element name="checkRecapitoContatto" type="tns:checkRecapitoContatto"/>
+      <xs:element name="checkRecapitoContattoResponse" type="tns:checkRecapitoContattoResponse"/>
+      <xs:element name="checkRecapitoResponse" type="tns:checkRecapitoResponse"/>
+      <xs:element name="getContatti" type="tns:getContatti"/>
+      <xs:element name="getContattiResponse" type="tns:getContattiResponse"/>
+      <xs:element name="getRecapiti" type="tns:getRecapiti"/>
+      <xs:element name="getRecapitiResponse" type="tns:getRecapitiResponse"/>
+      <xs:element name="insRecapitoContatto" type="tns:insRecapitoContatto"/>
+      <xs:element name="insRecapitoContattoResponse" type="tns:insRecapitoContattoResponse"/>
+      <xs:element name="researchAnagrafe" type="tns:researchAnagrafe"/>
+      <xs:element name="researchAnagrafeResponse" type="tns:researchAnagrafeResponse"/>
+      <xs:element name="tpkInsertAnagrafe" type="tns:tpkInsertAnagrafe"/>
+      <xs:element name="tpkInsertAnagrafeResponse" type="tns:tpkInsertAnagrafeResponse"/>
+      <xs:element name="tpkInsertAnagrafici" type="tns:tpkInsertAnagrafici"/>
+      <xs:element name="tpkInsertAnagraficiResponse" type="tns:tpkInsertAnagraficiResponse"/>
+      <xs:element name="tpkInsertContatto" type="tns:tpkInsertContatto"/>
+      <xs:element name="tpkInsertContattoResponse" type="tns:tpkInsertContattoResponse"/>
+      <xs:element name="tpkInsertRecapito" type="tns:tpkInsertRecapito"/>
+      <xs:element name="tpkInsertRecapitoResponse" type="tns:tpkInsertRecapitoResponse"/>
+      <xs:element name="tpkUpdateAnagrafe" type="tns:tpkUpdateAnagrafe"/>
+      <xs:element name="tpkUpdateAnagrafeResponse" type="tns:tpkUpdateAnagrafeResponse"/>
+      <xs:element name="tpkUpdateContatto" type="tns:tpkUpdateContatto"/>
+      <xs:element name="tpkUpdateContattoResponse" type="tns:tpkUpdateContattoResponse"/>
+      <xs:element name="tpkUpdateRecapito" type="tns:tpkUpdateRecapito"/>
+      <xs:element name="tpkUpdateRecapitoResponse" type="tns:tpkUpdateRecapitoResponse"/>
+      <xs:element name="updContatto" type="tns:updContatto"/>
+      <xs:element name="updContattoResponse" type="tns:updContattoResponse"/>
+      <xs:element name="updRecapito" type="tns:updRecapito"/>
+      <xs:element name="updRecapitoResponse" type="tns:updRecapitoResponse"/>
+      <xs:complexType name="tpkUpdateRecapito">
+        <xs:sequence>
+          <xs:element name="recapitoUpd" type="tns:WSRecapiti"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WSRecapiti">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idRecapito" type="xs:long"/>
+          <xs:element minOccurs="0" name="ni" type="xs:long"/>
+          <xs:element minOccurs="0" name="tipoRecapito" type="xs:string"/>
+          <xs:element name="dal" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="al" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="descrizione" type="xs:string"/>
+          <xs:element minOccurs="0" name="indirizzo" type="xs:string"/>
+          <xs:element minOccurs="0" name="provincia" type="xs:string"/>
+          <xs:element minOccurs="0" name="comune" type="xs:string"/>
+          <xs:element minOccurs="0" name="cap" type="xs:string"/>
+          <xs:element minOccurs="0" name="presso" type="xs:string"/>
+          <xs:element minOccurs="0" name="importanza" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tpkUpdateRecapitoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="tpkUpdateRecapitoResult" type="tns:WSOutput"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WSOutput">
+        <xs:sequence>
+          <xs:element name="codice" type="xs:string"/>
+          <xs:element name="esito_operazione" type="xs:string"/>
+          <xs:element minOccurs="0" name="id_recapito" type="xs:long"/>
+          <xs:element minOccurs="0" name="id_contatto" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="insRecapitoContatto">
+        <xs:sequence>
+          <xs:element name="ni" type="xs:long"/>
+          <xs:element minOccurs="0" name="indirizzo" type="xs:string"/>
+          <xs:element minOccurs="0" name="comune" type="xs:string"/>
+          <xs:element minOccurs="0" name="provincia" type="xs:string"/>
+          <xs:element name="tipo_contatto" type="xs:string"/>
+          <xs:element name="contatto" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="insRecapitoContattoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="insRecapitoContattoResult" type="tns:WSOutput"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getRecapiti">
+        <xs:sequence>
+          <xs:element name="ni" type="xs:long"/>
+          <xs:element minOccurs="0" name="idRecapito" type="xs:long"/>
+          <xs:element minOccurs="0" name="idTipoRecapito" type="xs:long"/>
+          <xs:element minOccurs="0" name="tipoRecapito" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getRecapitiResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="getRecapitiResult" type="tns:WSRecapiti"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updContatto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idContatto" type="xs:long"/>
+          <xs:element minOccurs="0" name="ni" type="xs:long"/>
+          <xs:element minOccurs="0" name="tipoRecapito" type="xs:string"/>
+          <xs:element minOccurs="0" name="tipoContatto" type="xs:string"/>
+          <xs:element name="dal" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="al" type="xs:dateTime"/>
+          <xs:element name="valore" type="xs:string"/>
+          <xs:element minOccurs="0" name="note" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updContattoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="updContattoResult" type="tns:WSOutput"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tpkInsertAnagrafe">
+        <xs:sequence>
+          <xs:element name="anagrafe" type="tns:WsAnagrafica"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WsAnagrafica">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ni" type="xs:long"/>
+          <xs:element name="dal" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="al" type="xs:dateTime"/>
+          <xs:element name="cognome" type="xs:string"/>
+          <xs:element minOccurs="0" name="nome" type="xs:string"/>
+          <xs:element minOccurs="0" name="sesso" type="xs:string"/>
+          <xs:element minOccurs="0" name="dataNascita" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="comuneNascita" type="xs:string"/>
+          <xs:element minOccurs="0" name="provinciaNascita" type="xs:string"/>
+          <xs:element minOccurs="0" name="luogoNascita" type="xs:string"/>
+          <xs:element minOccurs="0" name="presso" type="xs:string"/>
+          <xs:element minOccurs="0" name="codiceFiscale" type="xs:string"/>
+          <xs:element minOccurs="0" name="codiceFiscaleEstero" type="xs:string"/>
+          <xs:element minOccurs="0" name="partitaIva" type="xs:string"/>
+          <xs:element minOccurs="0" name="partitaIvaCee" type="xs:string"/>
+          <xs:element minOccurs="0" name="tipoSoggetto" type="xs:string"/>
+          <xs:element minOccurs="0" name="note" type="xs:string"/>
+          <xs:element minOccurs="0" name="indirizzoResidenza" type="xs:string"/>
+          <xs:element minOccurs="0" name="comuneResidenza" type="xs:string"/>
+          <xs:element minOccurs="0" name="provinciaResidenza" type="xs:string"/>
+          <xs:element minOccurs="0" name="capResidenza" type="xs:string"/>
+          <xs:element minOccurs="0" name="descrizioneResidenza" type="xs:string"/>
+          <xs:element minOccurs="0" name="importanzaResidenza" type="xs:long"/>
+          <xs:element minOccurs="0" name="indirizzoWeb" type="xs:string"/>
+          <xs:element minOccurs="0" name="noteMail" type="xs:string"/>
+          <xs:element minOccurs="0" name="importanzaMail" type="xs:long"/>
+          <xs:element minOccurs="0" name="telefonoResidenza" type="xs:string"/>
+          <xs:element minOccurs="0" name="noteTelefonoResidenza" type="xs:string"/>
+          <xs:element minOccurs="0" name="importanzaTelefonoResidenza" type="xs:long"/>
+          <xs:element minOccurs="0" name="faxResidenza" type="xs:string"/>
+          <xs:element minOccurs="0" name="noteFaxResidenza" type="xs:string"/>
+          <xs:element minOccurs="0" name="importanzaFaxResidenza" type="xs:long"/>
+          <xs:element minOccurs="0" name="indirizzoDomicilio" type="xs:string"/>
+          <xs:element minOccurs="0" name="descrizioneDomicilio" type="xs:string"/>
+          <xs:element minOccurs="0" name="comuneDomicilio" type="xs:string"/>
+          <xs:element minOccurs="0" name="provinciaDomicilio" type="xs:string"/>
+          <xs:element minOccurs="0" name="capDomicilio" type="xs:string"/>
+          <xs:element minOccurs="0" name="telefonoDomicilio" type="xs:string"/>
+          <xs:element minOccurs="0" name="noteTelefonoDomicilio" type="xs:string"/>
+          <xs:element minOccurs="0" name="importanzaTelefonoDomicilio" type="xs:long"/>
+          <xs:element minOccurs="0" name="faxDomicilio" type="xs:string"/>
+          <xs:element minOccurs="0" name="noteFaxDomicilio" type="xs:string"/>
+          <xs:element minOccurs="0" name="importanzaFaxDomicilio" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tpkInsertAnagrafeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="tpkInsertAnagrafeResult" type="tns:WSOutput"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="checkRecapito">
+        <xs:sequence>
+          <xs:element name="ni" type="xs:long"/>
+          <xs:element name="tipoRecapito" type="xs:string"/>
+          <xs:element name="indirizzo" type="xs:string"/>
+          <xs:element name="comune" type="xs:string"/>
+          <xs:element name="provincia" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="checkRecapitoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="checkRecapitoResult" type="tns:WSOutput"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tpkUpdateContatto">
+        <xs:sequence>
+          <xs:element name="contattoUpd" type="tns:WSContatto"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WSContatto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="idContatto" type="xs:long"/>
+          <xs:element minOccurs="0" name="idRecapito" type="xs:long"/>
+          <xs:element minOccurs="0" name="tipoContatto" type="xs:string"/>
+          <xs:element name="dal" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="al" type="xs:dateTime"/>
+          <xs:element name="valore" type="xs:string"/>
+          <xs:element minOccurs="0" name="note" type="xs:string"/>
+          <xs:element minOccurs="0" name="importanza" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tpkUpdateContattoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="tpkUpdateContattoResult" type="tns:WSOutput"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="researchAnagrafe">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="denominazione" type="xs:string"/>
+          <xs:element minOccurs="0" name="cognome" type="xs:string"/>
+          <xs:element minOccurs="0" name="nome" type="xs:string"/>
+          <xs:element minOccurs="0" name="codiceFiscale" type="xs:string"/>
+          <xs:element minOccurs="0" name="codiceFiscaleEstero" type="xs:string"/>
+          <xs:element minOccurs="0" name="partitaIva" type="xs:string"/>
+          <xs:element minOccurs="0" name="partitaIvaCee" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="researchAnagrafeResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="researchAnagrafeResult" type="tns:WsAnagraficaResearch"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WsAnagraficaResearch">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ni" type="xs:long"/>
+          <xs:element minOccurs="0" name="dal" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="al" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="cognome" type="xs:string"/>
+          <xs:element minOccurs="0" name="nome" type="xs:string"/>
+          <xs:element minOccurs="0" name="sesso" type="xs:string"/>
+          <xs:element minOccurs="0" name="dataNascita" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="comuneNascita" type="xs:string"/>
+          <xs:element minOccurs="0" name="provinciaNascita" type="xs:string"/>
+          <xs:element minOccurs="0" name="luogoNascita" type="xs:string"/>
+          <xs:element minOccurs="0" name="presso" type="xs:string"/>
+          <xs:element minOccurs="0" name="codiceFiscale" type="xs:string"/>
+          <xs:element minOccurs="0" name="codiceFiscaleEsteroni" type="xs:string"/>
+          <xs:element minOccurs="0" name="partitaIva" type="xs:string"/>
+          <xs:element minOccurs="0" name="partitaIvaCee" type="xs:string"/>
+          <xs:element minOccurs="0" name="tipoSoggetto" type="xs:string"/>
+          <xs:element minOccurs="0" name="note" type="xs:string"/>
+          <xs:element minOccurs="0" name="indirizzoResidenza" type="xs:string"/>
+          <xs:element minOccurs="0" name="comuneResidenza" type="xs:string"/>
+          <xs:element minOccurs="0" name="provinciaResidenza" type="xs:string"/>
+          <xs:element minOccurs="0" name="capResidenza" type="xs:string"/>
+          <xs:element minOccurs="0" name="descrizioneResidenza" type="xs:string"/>
+          <xs:element minOccurs="0" name="importanzaResidenza" type="xs:long"/>
+          <xs:element minOccurs="0" name="id_recapito_residenza" type="xs:long"/>
+          <xs:element minOccurs="0" name="indirizzoDomicilio" type="xs:string"/>
+          <xs:element minOccurs="0" name="descrizioneDomicilio" type="xs:string"/>
+          <xs:element minOccurs="0" name="comuneDomicilio" type="xs:string"/>
+          <xs:element minOccurs="0" name="provinciaDomicilio" type="xs:string"/>
+          <xs:element minOccurs="0" name="capDomicilio" type="xs:string"/>
+          <xs:element minOccurs="0" name="id_recapito_domicilio" type="xs:long"/>
+          <xs:element minOccurs="0" name="fax_dom" type="xs:string"/>
+          <xs:element minOccurs="0" name="fax_res" type="xs:string"/>
+          <xs:element minOccurs="0" name="id_contatto_fax_dom" type="xs:long"/>
+          <xs:element minOccurs="0" name="id_contatto_fax_res" type="xs:long"/>
+          <xs:element minOccurs="0" name="id_contatto_indirizzo_web" type="xs:long"/>
+          <xs:element minOccurs="0" name="id_contatto_tel_dom" type="xs:long"/>
+          <xs:element minOccurs="0" name="id_contatto_tel_res" type="xs:long"/>
+          <xs:element minOccurs="0" name="indirizzo_web" type="xs:string"/>
+          <xs:element minOccurs="0" name="tel_dom" type="xs:string"/>
+          <xs:element minOccurs="0" name="tel_res" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getContatti">
+        <xs:sequence>
+          <xs:element name="idRecapito" type="xs:long"/>
+          <xs:element minOccurs="0" name="idContatto" type="xs:long"/>
+          <xs:element minOccurs="0" name="idTipoContatto" type="xs:long"/>
+          <xs:element minOccurs="0" name="tipoContatto" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getContattiResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="getContattiResult" type="tns:WSContatto"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tpkInsertAnagrafici">
+        <xs:sequence>
+          <xs:element name="soggettoCorrente" type="tns:WSSoggettoCorrente"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WSSoggettoCorrente">
+        <xs:sequence>
+          <xs:element name="cognome" type="xs:string"/>
+          <xs:element minOccurs="0" name="nome" type="xs:string"/>
+          <xs:element minOccurs="0" name="sesso" type="xs:string"/>
+          <xs:element minOccurs="0" name="tipoSoggetto" type="xs:string"/>
+          <xs:element minOccurs="0" name="codiceFiscale" type="xs:string"/>
+          <xs:element minOccurs="0" name="partitaIva" type="xs:string"/>
+          <xs:element minOccurs="0" name="partitaIvaCee" type="xs:string"/>
+          <xs:element name="dal" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="al" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="codiceFiscaleEstero" type="xs:string"/>
+          <xs:element minOccurs="0" name="dataNascita" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="luogoNascita" type="xs:string"/>
+          <xs:element minOccurs="0" name="comuneNascita" type="xs:string"/>
+          <xs:element minOccurs="0" name="provinciaNascita" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tpkInsertAnagraficiResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="tpkInsertAnagraficiResult" type="tns:WSOutput"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tpkInsertRecapito">
+        <xs:sequence>
+          <xs:element name="recapito" type="tns:WSRecapiti"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tpkInsertRecapitoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="tpkInsertRecapitoResult" type="tns:WSOutput"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="checkRecapitoContatto">
+        <xs:sequence>
+          <xs:element name="ni" type="xs:long"/>
+          <xs:element minOccurs="0" name="indirizzo" type="xs:string"/>
+          <xs:element minOccurs="0" name="comune" type="xs:string"/>
+          <xs:element minOccurs="0" name="provincia" type="xs:string"/>
+          <xs:element name="contatto" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="checkRecapitoContattoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="checkRecapitoContattoResult" type="tns:WSOutput"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tpkUpdateAnagrafe">
+        <xs:sequence>
+          <xs:element name="anagrafe" type="tns:WsAnagrafica"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tpkUpdateAnagrafeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="tpkUpdateAnagrafeResult" type="tns:WSOutput"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updRecapito">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="recapito" type="xs:long"/>
+          <xs:element minOccurs="0" name="ni" type="xs:long"/>
+          <xs:element minOccurs="0" name="tipoRecapito" type="xs:string"/>
+          <xs:element name="dal" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="al" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="descrizione" type="xs:string"/>
+          <xs:element minOccurs="0" name="indirizzo" type="xs:string"/>
+          <xs:element minOccurs="0" name="provincia" type="xs:string"/>
+          <xs:element minOccurs="0" name="comune" type="xs:string"/>
+          <xs:element minOccurs="0" name="cap" type="xs:string"/>
+          <xs:element minOccurs="0" name="presso" type="xs:string"/>
+          <xs:element minOccurs="0" name="importanza" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updRecapitoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="updRecapitoResult" type="tns:WSOutput"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tpkInsertContatto">
+        <xs:sequence>
+          <xs:element name="contatto" type="tns:WSContatto"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tpkInsertContattoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="tpkInsertContattoResult" type="tns:WSOutput"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="tpkUpdateRecapito">
+    <wsdl:part element="tns:tpkUpdateRecapito" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="insRecapitoContatto">
+    <wsdl:part element="tns:insRecapitoContatto" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRecapiti">
+    <wsdl:part element="tns:getRecapiti" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updContatto">
+    <wsdl:part element="tns:updContatto" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="insRecapitoContattoResponse">
+    <wsdl:part element="tns:insRecapitoContattoResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tpkUpdateContattoResponse">
+    <wsdl:part element="tns:tpkUpdateContattoResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tpkInsertRecapitoResponse">
+    <wsdl:part element="tns:tpkInsertRecapitoResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkRecapitoResponse">
+    <wsdl:part element="tns:checkRecapitoResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tpkUpdateContatto">
+    <wsdl:part element="tns:tpkUpdateContatto" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="researchAnagrafe">
+    <wsdl:part element="tns:researchAnagrafe" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getContatti">
+    <wsdl:part element="tns:getContatti" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tpkInsertAnagrafici">
+    <wsdl:part element="tns:tpkInsertAnagrafici" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tpkInsertRecapito">
+    <wsdl:part element="tns:tpkInsertRecapito" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkRecapitoContatto">
+    <wsdl:part element="tns:checkRecapitoContatto" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tpkUpdateRecapitoResponse">
+    <wsdl:part element="tns:tpkUpdateRecapitoResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updRecapito">
+    <wsdl:part element="tns:updRecapito" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tpkInsertContattoResponse">
+    <wsdl:part element="tns:tpkInsertContattoResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getContattiResponse">
+    <wsdl:part element="tns:getContattiResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tpkInsertContatto">
+    <wsdl:part element="tns:tpkInsertContatto" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tpkInsertAnagrafeResponse">
+    <wsdl:part element="tns:tpkInsertAnagrafeResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tpkInsertAnagraficiResponse">
+    <wsdl:part element="tns:tpkInsertAnagraficiResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updRecapitoResponse">
+    <wsdl:part element="tns:updRecapitoResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tpkInsertAnagrafe">
+    <wsdl:part element="tns:tpkInsertAnagrafe" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRecapitiResponse">
+    <wsdl:part element="tns:getRecapitiResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkRecapito">
+    <wsdl:part element="tns:checkRecapito" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="researchAnagrafeResponse">
+    <wsdl:part element="tns:researchAnagrafeResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="checkRecapitoContattoResponse">
+    <wsdl:part element="tns:checkRecapitoContattoResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updContattoResponse">
+    <wsdl:part element="tns:updContattoResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tpkUpdateAnagrafeResponse">
+    <wsdl:part element="tns:tpkUpdateAnagrafeResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="tpkUpdateAnagrafe">
+    <wsdl:part element="tns:tpkUpdateAnagrafe" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ServiziAnagrafeService">
+    <wsdl:operation name="tpkUpdateRecapito">
+      <wsdl:input message="tns:tpkUpdateRecapito" name="tpkUpdateRecapito"></wsdl:input>
+      <wsdl:output message="tns:tpkUpdateRecapitoResponse" name="tpkUpdateRecapitoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insRecapitoContatto">
+      <wsdl:input message="tns:insRecapitoContatto" name="insRecapitoContatto"></wsdl:input>
+      <wsdl:output message="tns:insRecapitoContattoResponse" name="insRecapitoContattoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRecapiti">
+      <wsdl:input message="tns:getRecapiti" name="getRecapiti"></wsdl:input>
+      <wsdl:output message="tns:getRecapitiResponse" name="getRecapitiResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updContatto">
+      <wsdl:input message="tns:updContatto" name="updContatto"></wsdl:input>
+      <wsdl:output message="tns:updContattoResponse" name="updContattoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tpkInsertAnagrafe">
+      <wsdl:input message="tns:tpkInsertAnagrafe" name="tpkInsertAnagrafe"></wsdl:input>
+      <wsdl:output message="tns:tpkInsertAnagrafeResponse" name="tpkInsertAnagrafeResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkRecapito">
+      <wsdl:input message="tns:checkRecapito" name="checkRecapito"></wsdl:input>
+      <wsdl:output message="tns:checkRecapitoResponse" name="checkRecapitoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tpkUpdateContatto">
+      <wsdl:input message="tns:tpkUpdateContatto" name="tpkUpdateContatto"></wsdl:input>
+      <wsdl:output message="tns:tpkUpdateContattoResponse" name="tpkUpdateContattoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="researchAnagrafe">
+      <wsdl:input message="tns:researchAnagrafe" name="researchAnagrafe"></wsdl:input>
+      <wsdl:output message="tns:researchAnagrafeResponse" name="researchAnagrafeResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getContatti">
+      <wsdl:input message="tns:getContatti" name="getContatti"></wsdl:input>
+      <wsdl:output message="tns:getContattiResponse" name="getContattiResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tpkInsertAnagrafici">
+      <wsdl:input message="tns:tpkInsertAnagrafici" name="tpkInsertAnagrafici"></wsdl:input>
+      <wsdl:output message="tns:tpkInsertAnagraficiResponse" name="tpkInsertAnagraficiResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tpkInsertRecapito">
+      <wsdl:input message="tns:tpkInsertRecapito" name="tpkInsertRecapito"></wsdl:input>
+      <wsdl:output message="tns:tpkInsertRecapitoResponse" name="tpkInsertRecapitoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkRecapitoContatto">
+      <wsdl:input message="tns:checkRecapitoContatto" name="checkRecapitoContatto"></wsdl:input>
+      <wsdl:output message="tns:checkRecapitoContattoResponse" name="checkRecapitoContattoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tpkUpdateAnagrafe">
+      <wsdl:input message="tns:tpkUpdateAnagrafe" name="tpkUpdateAnagrafe"></wsdl:input>
+      <wsdl:output message="tns:tpkUpdateAnagrafeResponse" name="tpkUpdateAnagrafeResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updRecapito">
+      <wsdl:input message="tns:updRecapito" name="updRecapito"></wsdl:input>
+      <wsdl:output message="tns:updRecapitoResponse" name="updRecapitoResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tpkInsertContatto">
+      <wsdl:input message="tns:tpkInsertContatto" name="tpkInsertContatto"></wsdl:input>
+      <wsdl:output message="tns:tpkInsertContattoResponse" name="tpkInsertContattoResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiziAnagrafeServiceSoapBinding" type="tns:ServiziAnagrafeService">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="tpkUpdateRecapito">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="tpkUpdateRecapito">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="tpkUpdateRecapitoResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insRecapitoContatto">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="insRecapitoContatto">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="insRecapitoContattoResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRecapiti">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="getRecapiti">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getRecapitiResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updContatto">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="updContatto">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updContattoResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tpkInsertAnagrafe">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="tpkInsertAnagrafe">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="tpkInsertAnagrafeResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkRecapito">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="checkRecapito">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="checkRecapitoResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tpkUpdateContatto">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="tpkUpdateContatto">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="tpkUpdateContattoResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="researchAnagrafe">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="researchAnagrafe">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="researchAnagrafeResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getContatti">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="getContatti">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getContattiResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tpkInsertAnagrafici">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="tpkInsertAnagrafici">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="tpkInsertAnagraficiResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tpkInsertRecapito">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="tpkInsertRecapito">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="tpkInsertRecapitoResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkRecapitoContatto">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="checkRecapitoContatto">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="checkRecapitoContattoResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tpkUpdateAnagrafe">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="tpkUpdateAnagrafe">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="tpkUpdateAnagrafeResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updRecapito">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="updRecapito">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updRecapitoResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="tpkInsertContatto">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="tpkInsertContatto">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="tpkInsertContattoResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiziAnagrafeService">
+    <wsdl:port binding="tns:ServiziAnagrafeServiceSoapBinding" name="ServiziAnagrafeServicePort">
+      <soap12:address location="https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/Anagrafica/services/serviziAnagrafe</con:endpoint><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint></con:endpoints><con:operation id="a963fcef-4547-4060-9223-bae2c8128738" isOneWay="false" action="" name="checkRecapito" bindingOperationName="checkRecapito" type="Request-Response" outputName="checkRecapitoResponse" inputName="checkRecapito" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8ebeb7cd-2b3e-4fa3-af1d-374d2cb46258" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:checkRecapito>\r
+         <ni>?</ni>\r
+         <tipoRecapito>?</tipoRecapito>\r
+         <indirizzo>?</indirizzo>\r
+         <comune>?</comune>\r
+         <provincia>?</provincia>\r
+      </it:checkRecapito>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="it.finmatica.as4.ws/ServiziAnagrafeService/checkRecapito"/></con:call></con:operation><con:operation id="6676ba34-8911-4356-98c9-1936f0b9c6e3" isOneWay="false" action="" name="checkRecapitoContatto" bindingOperationName="checkRecapitoContatto" type="Request-Response" outputName="checkRecapitoContattoResponse" inputName="checkRecapitoContatto" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ba92adf7-d158-42d5-bfbe-e1b99153b6b3" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:checkRecapitoContatto>\r
+         <ni>?</ni>\r
+         <!--Optional:-->\r
+         <indirizzo>?</indirizzo>\r
+         <!--Optional:-->\r
+         <comune>?</comune>\r
+         <!--Optional:-->\r
+         <provincia>?</provincia>\r
+         <contatto>?</contatto>\r
+      </it:checkRecapitoContatto>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="it.finmatica.as4.ws/ServiziAnagrafeService/checkRecapitoContatto"/></con:call></con:operation><con:operation id="96081324-693a-490c-8fb8-b5cd6567d90f" isOneWay="false" action="" name="getContatti" bindingOperationName="getContatti" type="Request-Response" outputName="getContattiResponse" inputName="getContatti" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4f3e7823-6d5a-4858-aeee-242da9b36e94" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:getContatti>\r
+         <idRecapito>?</idRecapito>\r
+         <!--Optional:-->\r
+         <idContatto>?</idContatto>\r
+         <!--Optional:-->\r
+         <idTipoContatto>?</idTipoContatto>\r
+         <!--Optional:-->\r
+         <tipoContatto>?</tipoContatto>\r
+      </it:getContatti>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="it.finmatica.as4.ws/ServiziAnagrafeService/getContatti"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="45d6ef68-9744-4fd5-bc26-ec3a1743e5ba" isOneWay="false" action="" name="getRecapiti" bindingOperationName="getRecapiti" type="Request-Response" outputName="getRecapitiResponse" inputName="getRecapiti" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c20c0fee-030b-47ad-8745-3c2da4ce201a" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:getRecapiti>\r
+         <ni>?</ni>\r
+         <!--Optional:-->\r
+         <idRecapito>?</idRecapito>\r
+         <!--Optional:-->\r
+         <idTipoRecapito>?</idTipoRecapito>\r
+         <!--Optional:-->\r
+         <tipoRecapito>?</tipoRecapito>\r
+      </it:getRecapiti>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="it.finmatica.as4.ws/ServiziAnagrafeService/getRecapiti"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="e3be02a3-9455-4227-85a4-a45e75625220" isOneWay="false" action="" name="insRecapitoContatto" bindingOperationName="insRecapitoContatto" type="Request-Response" outputName="insRecapitoContattoResponse" inputName="insRecapitoContatto" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1c95be05-1ba9-427a-b890-2a9c833d12bd" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:insRecapitoContatto>\r
+         <ni>?</ni>\r
+         <!--Optional:-->\r
+         <indirizzo>?</indirizzo>\r
+         <!--Optional:-->\r
+         <comune>?</comune>\r
+         <!--Optional:-->\r
+         <provincia>?</provincia>\r
+         <tipo_contatto>?</tipo_contatto>\r
+         <contatto>?</contatto>\r
+      </it:insRecapitoContatto>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="it.finmatica.as4.ws/ServiziAnagrafeService/insRecapitoContatto"/></con:call></con:operation><con:operation id="52399397-834f-4c21-88df-ac563b863639" isOneWay="false" action="" name="researchAnagrafe" bindingOperationName="researchAnagrafe" type="Request-Response" outputName="researchAnagrafeResponse" inputName="researchAnagrafe" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="acf60999-6bda-42ce-acd6-cb49291ef862" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:researchAnagrafe>\r
+         
+         <cognome>GUALTIERI</cognome>\r
+         
+      </it:researchAnagrafe>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:username>as4</con:username><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="it.finmatica.as4.ws/ServiziAnagrafeService/researchAnagrafe"/><con:wsrmConfig version="1.2"/></con:call><con:call id="cbd82c66-af24-4af3-a19e-208780c99244" name="Request 2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:researchAnagrafe>\r
+         <!--Optional:-->\r
+         <denominazione>?</denominazione>\r
+         <!--Optional:-->\r
+         <cognome>?</cognome>\r
+         <!--Optional:-->\r
+         <nome>?</nome>\r
+         <!--Optional:-->\r
+         <codiceFiscale>?</codiceFiscale>\r
+         <!--Optional:-->\r
+         <codiceFiscaleEstero>?</codiceFiscaleEstero>\r
+         <!--Optional:-->\r
+         <partitaIva>?</partitaIva>\r
+         <!--Optional:-->\r
+         <partitaIvaCee>123445451254565</partitaIvaCee>\r
+      </it:researchAnagrafe>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:username>as4</con:username><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="it.finmatica.as4.ws/ServiziAnagrafeService/researchAnagrafe"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="0754eca6-df53-4b92-b810-df04bfa5917d" isOneWay="false" action="" name="tpkInsertAnagrafe" bindingOperationName="tpkInsertAnagrafe" type="Request-Response" outputName="tpkInsertAnagrafeResponse" inputName="tpkInsertAnagrafe" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c1d7f847-d3ab-4cd1-8f1a-8814db8e2400" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertAnagrafe>\r
+         <anagrafe>\r
+            <!--Optional:-->\r
+            <ni>?</ni>\r
+            <dal>?</dal>\r
+            <!--Optional:-->\r
+            <al>?</al>\r
+            <cognome>?</cognome>\r
+            <!--Optional:-->\r
+            <nome>?</nome>\r
+            <!--Optional:-->\r
+            <sesso>?</sesso>\r
+            <!--Optional:-->\r
+            <dataNascita>?</dataNascita>\r
+            <!--Optional:-->\r
+            <comuneNascita>?</comuneNascita>\r
+            <!--Optional:-->\r
+            <provinciaNascita>?</provinciaNascita>\r
+            <!--Optional:-->\r
+            <luogoNascita>?</luogoNascita>\r
+            <!--Optional:-->\r
+            <presso>?</presso>\r
+            <!--Optional:-->\r
+            <codiceFiscale>?</codiceFiscale>\r
+            <!--Optional:-->\r
+            <codiceFiscaleEstero>?</codiceFiscaleEstero>\r
+            <!--Optional:-->\r
+            <partitaIva>?</partitaIva>\r
+            <!--Optional:-->\r
+            <partitaIvaCee>?</partitaIvaCee>\r
+            <!--Optional:-->\r
+            <tipoSoggetto>?</tipoSoggetto>\r
+            <!--Optional:-->\r
+            <note>?</note>\r
+            <!--Optional:-->\r
+            <indirizzoResidenza>?</indirizzoResidenza>\r
+            <!--Optional:-->\r
+            <comuneResidenza>?</comuneResidenza>\r
+            <!--Optional:-->\r
+            <provinciaResidenza>?</provinciaResidenza>\r
+            <!--Optional:-->\r
+            <capResidenza>?</capResidenza>\r
+            <!--Optional:-->\r
+            <descrizioneResidenza>?</descrizioneResidenza>\r
+            <!--Optional:-->\r
+            <importanzaResidenza>?</importanzaResidenza>\r
+            <!--Optional:-->\r
+            <indirizzoWeb>?</indirizzoWeb>\r
+            <!--Optional:-->\r
+            <noteMail>?</noteMail>\r
+            <!--Optional:-->\r
+            <importanzaMail>?</importanzaMail>\r
+            <!--Optional:-->\r
+            <telefonoResidenza>?</telefonoResidenza>\r
+            <!--Optional:-->\r
+            <noteTelefonoResidenza>?</noteTelefonoResidenza>\r
+            <!--Optional:-->\r
+            <importanzaTelefonoResidenza>?</importanzaTelefonoResidenza>\r
+            <!--Optional:-->\r
+            <faxResidenza>?</faxResidenza>\r
+            <!--Optional:-->\r
+            <noteFaxResidenza>?</noteFaxResidenza>\r
+            <!--Optional:-->\r
+            <importanzaFaxResidenza>?</importanzaFaxResidenza>\r
+            <!--Optional:-->\r
+            <indirizzoDomicilio>?</indirizzoDomicilio>\r
+            <!--Optional:-->\r
+            <descrizioneDomicilio>?</descrizioneDomicilio>\r
+            <!--Optional:-->\r
+            <comuneDomicilio>?</comuneDomicilio>\r
+            <!--Optional:-->\r
+            <provinciaDomicilio>?</provinciaDomicilio>\r
+            <!--Optional:-->\r
+            <capDomicilio>?</capDomicilio>\r
+            <!--Optional:-->\r
+            <telefonoDomicilio>?</telefonoDomicilio>\r
+            <!--Optional:-->\r
+            <noteTelefonoDomicilio>?</noteTelefonoDomicilio>\r
+            <!--Optional:-->\r
+            <importanzaTelefonoDomicilio>?</importanzaTelefonoDomicilio>\r
+            <!--Optional:-->\r
+            <faxDomicilio>?</faxDomicilio>\r
+            <!--Optional:-->\r
+            <noteFaxDomicilio>?</noteFaxDomicilio>\r
+            <!--Optional:-->\r
+            <importanzaFaxDomicilio>?</importanzaFaxDomicilio>\r
+         </anagrafe>\r
+      </it:tpkInsertAnagrafe>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="it.finmatica.as4.ws/ServiziAnagrafeService/tpkInsertAnagrafe"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="1657af8d-40ab-469b-8766-dd43669895b4" isOneWay="false" action="" name="tpkInsertAnagrafici" bindingOperationName="tpkInsertAnagrafici" type="Request-Response" outputName="tpkInsertAnagraficiResponse" inputName="tpkInsertAnagrafici" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0e178954-4d28-4348-ba2d-1d38377bbf48" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertAnagrafici>\r
+         <soggettoCorrente>\r
+            <cognome>GUALTI_ES</cognome>\r
+            
+            <partitaIvaCee>123456789123456</partitaIvaCee>\r
+            <dal>2021-06-01T00:00:00</dal>\r
+            
+         </soggettoCorrente>\r
+      </it:tpkInsertAnagrafici>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:username>as4</con:username><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="it.finmatica.as4.ws/ServiziAnagrafeService/tpkInsertAnagrafici"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="6fa520be-7e93-41c2-a82c-f219a1918268" isOneWay="false" action="" name="tpkInsertContatto" bindingOperationName="tpkInsertContatto" type="Request-Response" outputName="tpkInsertContattoResponse" inputName="tpkInsertContatto" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ee5ef029-6716-4afb-8103-b95357418753" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertContatto>\r
+         <contatto>\r
+            <!--Optional:-->\r
+            <idContatto>?</idContatto>\r
+            <!--Optional:-->\r
+            <idRecapito>?</idRecapito>\r
+            <!--Optional:-->\r
+            <tipoContatto>?</tipoContatto>\r
+            <dal>?</dal>\r
+            <!--Optional:-->\r
+            <al>?</al>\r
+            <valore>?</valore>\r
+            <!--Optional:-->\r
+            <note>?</note>\r
+            <!--Optional:-->\r
+            <importanza>?</importanza>\r
+         </contatto>\r
+      </it:tpkInsertContatto>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="it.finmatica.as4.ws/ServiziAnagrafeService/tpkInsertContatto"/></con:call></con:operation><con:operation id="e91f04a1-21e8-457e-aa4b-d9b0e1d809c1" isOneWay="false" action="" name="tpkInsertRecapito" bindingOperationName="tpkInsertRecapito" type="Request-Response" outputName="tpkInsertRecapitoResponse" inputName="tpkInsertRecapito" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3424d6cf-acba-4b6e-afa9-3152d6080be0" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertRecapito>\r
+         <recapito>\r
+            <!--Optional:-->\r
+            <idRecapito>?</idRecapito>\r
+            <!--Optional:-->\r
+            <ni>?</ni>\r
+            <!--Optional:-->\r
+            <tipoRecapito>?</tipoRecapito>\r
+            <dal>?</dal>\r
+            <!--Optional:-->\r
+            <al>?</al>\r
+            <!--Optional:-->\r
+            <descrizione>?</descrizione>\r
+            <!--Optional:-->\r
+            <indirizzo>?</indirizzo>\r
+            <!--Optional:-->\r
+            <provincia>?</provincia>\r
+            <!--Optional:-->\r
+            <comune>?</comune>\r
+            <!--Optional:-->\r
+            <cap>?</cap>\r
+            <!--Optional:-->\r
+            <presso>?</presso>\r
+            <!--Optional:-->\r
+            <importanza>?</importanza>\r
+         </recapito>\r
+      </it:tpkInsertRecapito>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="it.finmatica.as4.ws/ServiziAnagrafeService/tpkInsertRecapito"/></con:call></con:operation><con:operation id="94423128-0bb4-4cce-86cf-167f786c7d69" isOneWay="false" action="" name="tpkUpdateAnagrafe" bindingOperationName="tpkUpdateAnagrafe" type="Request-Response" outputName="tpkUpdateAnagrafeResponse" inputName="tpkUpdateAnagrafe" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a1f4e10b-b73f-43b9-96d3-cd83581fa302" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkUpdateAnagrafe>\r
+         <anagrafe>\r
+            <!--Optional:-->\r
+            <ni>?</ni>\r
+            <dal>?</dal>\r
+            <!--Optional:-->\r
+            <al>?</al>\r
+            <cognome>?</cognome>\r
+            <!--Optional:-->\r
+            <nome>?</nome>\r
+            <!--Optional:-->\r
+            <sesso>?</sesso>\r
+            <!--Optional:-->\r
+            <dataNascita>?</dataNascita>\r
+            <!--Optional:-->\r
+            <comuneNascita>?</comuneNascita>\r
+            <!--Optional:-->\r
+            <provinciaNascita>?</provinciaNascita>\r
+            <!--Optional:-->\r
+            <luogoNascita>?</luogoNascita>\r
+            <!--Optional:-->\r
+            <presso>?</presso>\r
+            <!--Optional:-->\r
+            <codiceFiscale>?</codiceFiscale>\r
+            <!--Optional:-->\r
+            <codiceFiscaleEstero>?</codiceFiscaleEstero>\r
+            <!--Optional:-->\r
+            <partitaIva>?</partitaIva>\r
+            <!--Optional:-->\r
+            <partitaIvaCee>?</partitaIvaCee>\r
+            <!--Optional:-->\r
+            <tipoSoggetto>?</tipoSoggetto>\r
+            <!--Optional:-->\r
+            <note>?</note>\r
+            <!--Optional:-->\r
+            <indirizzoResidenza>?</indirizzoResidenza>\r
+            <!--Optional:-->\r
+            <comuneResidenza>?</comuneResidenza>\r
+            <!--Optional:-->\r
+            <provinciaResidenza>?</provinciaResidenza>\r
+            <!--Optional:-->\r
+            <capResidenza>?</capResidenza>\r
+            <!--Optional:-->\r
+            <descrizioneResidenza>?</descrizioneResidenza>\r
+            <!--Optional:-->\r
+            <importanzaResidenza>?</importanzaResidenza>\r
+            <!--Optional:-->\r
+            <indirizzoWeb>?</indirizzoWeb>\r
+            <!--Optional:-->\r
+            <noteMail>?</noteMail>\r
+            <!--Optional:-->\r
+            <importanzaMail>?</importanzaMail>\r
+            <!--Optional:-->\r
+            <telefonoResidenza>?</telefonoResidenza>\r
+            <!--Optional:-->\r
+            <noteTelefonoResidenza>?</noteTelefonoResidenza>\r
+            <!--Optional:-->\r
+            <importanzaTelefonoResidenza>?</importanzaTelefonoResidenza>\r
+            <!--Optional:-->\r
+            <faxResidenza>?</faxResidenza>\r
+            <!--Optional:-->\r
+            <noteFaxResidenza>?</noteFaxResidenza>\r
+            <!--Optional:-->\r
+            <importanzaFaxResidenza>?</importanzaFaxResidenza>\r
+            <!--Optional:-->\r
+            <indirizzoDomicilio>?</indirizzoDomicilio>\r
+            <!--Optional:-->\r
+            <descrizioneDomicilio>?</descrizioneDomicilio>\r
+            <!--Optional:-->\r
+            <comuneDomicilio>?</comuneDomicilio>\r
+            <!--Optional:-->\r
+            <provinciaDomicilio>?</provinciaDomicilio>\r
+            <!--Optional:-->\r
+            <capDomicilio>?</capDomicilio>\r
+            <!--Optional:-->\r
+            <telefonoDomicilio>?</telefonoDomicilio>\r
+            <!--Optional:-->\r
+            <noteTelefonoDomicilio>?</noteTelefonoDomicilio>\r
+            <!--Optional:-->\r
+            <importanzaTelefonoDomicilio>?</importanzaTelefonoDomicilio>\r
+            <!--Optional:-->\r
+            <faxDomicilio>?</faxDomicilio>\r
+            <!--Optional:-->\r
+            <noteFaxDomicilio>?</noteFaxDomicilio>\r
+            <!--Optional:-->\r
+            <importanzaFaxDomicilio>?</importanzaFaxDomicilio>\r
+         </anagrafe>\r
+      </it:tpkUpdateAnagrafe>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="it.finmatica.as4.ws/ServiziAnagrafeService/tpkUpdateAnagrafe"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="7d0c1f1d-9fd7-4505-8dc2-71e4517be555" isOneWay="false" action="" name="tpkUpdateContatto" bindingOperationName="tpkUpdateContatto" type="Request-Response" outputName="tpkUpdateContattoResponse" inputName="tpkUpdateContatto" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8c56ad7a-6a9d-4871-9ecb-cbce1fb54cc3" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkUpdateContatto>\r
+         <contattoUpd>\r
+            <!--Optional:-->\r
+            <idContatto>?</idContatto>\r
+            <!--Optional:-->\r
+            <idRecapito>?</idRecapito>\r
+            <!--Optional:-->\r
+            <tipoContatto>?</tipoContatto>\r
+            <dal>?</dal>\r
+            <!--Optional:-->\r
+            <al>?</al>\r
+            <valore>?</valore>\r
+            <!--Optional:-->\r
+            <note>?</note>\r
+            <!--Optional:-->\r
+            <importanza>?</importanza>\r
+         </contattoUpd>\r
+      </it:tpkUpdateContatto>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="it.finmatica.as4.ws/ServiziAnagrafeService/tpkUpdateContatto"/></con:call></con:operation><con:operation id="157e523f-684a-43df-ad54-857715224f21" isOneWay="false" action="" name="tpkUpdateRecapito" bindingOperationName="tpkUpdateRecapito" type="Request-Response" outputName="tpkUpdateRecapitoResponse" inputName="tpkUpdateRecapito" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c4c3c622-0dfa-417c-b129-3237c2c52bed" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkUpdateRecapito>\r
+         <recapitoUpd>\r
+            <!--Optional:-->\r
+            <idRecapito>?</idRecapito>\r
+            <!--Optional:-->\r
+            <ni>?</ni>\r
+            <!--Optional:-->\r
+            <tipoRecapito>?</tipoRecapito>\r
+            <dal>?</dal>\r
+            <!--Optional:-->\r
+            <al>?</al>\r
+            <!--Optional:-->\r
+            <descrizione>?</descrizione>\r
+            <!--Optional:-->\r
+            <indirizzo>?</indirizzo>\r
+            <!--Optional:-->\r
+            <provincia>?</provincia>\r
+            <!--Optional:-->\r
+            <comune>?</comune>\r
+            <!--Optional:-->\r
+            <cap>?</cap>\r
+            <!--Optional:-->\r
+            <presso>?</presso>\r
+            <!--Optional:-->\r
+            <importanza>?</importanza>\r
+         </recapitoUpd>\r
+      </it:tpkUpdateRecapito>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="it.finmatica.as4.ws/ServiziAnagrafeService/tpkUpdateRecapito"/></con:call></con:operation><con:operation id="c679d7f8-67de-4800-8c61-0baf3eef721e" isOneWay="false" action="" name="updContatto" bindingOperationName="updContatto" type="Request-Response" outputName="updContattoResponse" inputName="updContatto" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2b3bc39a-4744-4568-8d14-bf0ad95743db" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:updContatto>\r
+         <!--Optional:-->\r
+         <idContatto>?</idContatto>\r
+         <!--Optional:-->\r
+         <ni>?</ni>\r
+         <!--Optional:-->\r
+         <tipoRecapito>?</tipoRecapito>\r
+         <!--Optional:-->\r
+         <tipoContatto>?</tipoContatto>\r
+         <dal>?</dal>\r
+         <!--Optional:-->\r
+         <al>?</al>\r
+         <valore>?</valore>\r
+         <!--Optional:-->\r
+         <note>?</note>\r
+      </it:updContatto>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="it.finmatica.as4.ws/ServiziAnagrafeService/updContatto"/></con:call></con:operation><con:operation id="96df2273-864c-48c4-b82c-edbd4c1adfd9" isOneWay="false" action="" name="updRecapito" bindingOperationName="updRecapito" type="Request-Response" outputName="updRecapitoResponse" inputName="updRecapito" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0b79666d-c021-473e-b3b1-1b3b33b7e92d" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:updRecapito>\r
+         <!--Optional:-->\r
+         <recapito>?</recapito>\r
+         <!--Optional:-->\r
+         <ni>?</ni>\r
+         <!--Optional:-->\r
+         <tipoRecapito>?</tipoRecapito>\r
+         <dal>?</dal>\r
+         <!--Optional:-->\r
+         <al>?</al>\r
+         <!--Optional:-->\r
+         <descrizione>?</descrizione>\r
+         <!--Optional:-->\r
+         <indirizzo>?</indirizzo>\r
+         <!--Optional:-->\r
+         <provincia>?</provincia>\r
+         <!--Optional:-->\r
+         <comune>?</comune>\r
+         <!--Optional:-->\r
+         <cap>?</cap>\r
+         <!--Optional:-->\r
+         <presso>?</presso>\r
+         <!--Optional:-->\r
+         <importanza>?</importanza>\r
+      </it:updRecapito>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="it.finmatica.as4.ws/ServiziAnagrafeService/updRecapito"/></con:call></con:operation></con:interface><con:testSuite id="80bb754b-c1ff-4e46-b6d8-9e1f67e9d829" name="TestCaseAnagrafica"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="7fb555d6-b6d7-4625-ae9b-76e73baf9f5b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="tpkInsertAnagraficiTestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="tpkInsertAnagrafici" id="b545139c-5d69-420e-83b5-f72855f05c3f"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertAnagrafici</con:operation><con:request name="tpkInsertAnagrafici" id="839a5f66-c096-43ea-9a82-7a5457bd536b"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertAnagrafici>\r
+         <soggettoCorrente>\r
+            <cognome>${#Project#cognome}</cognome>
+            <nome>${#Project#nome}</nome>
+            <sesso>${#Project#sesso}</sesso>
+            <tipoSoggetto>I</tipoSoggetto>
+            <codiceFiscale>${#Project#codiceFiscale}</codiceFiscale>
+            <comuneNascita>${#Project#comuneNascita}</comuneNascita>
+            <provinciaNascita>${#Project#provinciaNascita}</provinciaNascita>
+            <dataNascita>${#Project#dataNascita}</dataNascita>
+            <luogoNascita>${#Project#luogoNascita}</luogoNascita>
+            <dal>${#Project#dal}</dal>
+         </soggettoCorrente>\r
+      </it:tpkInsertAnagrafici>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="4d769ef1-9d65-4603-8a5a-61126c890145"/><con:assertion type="XPath Match" id="7f3442b8-04a2-444c-b032-14db21a3d335" name="XPath Match"><con:configuration><path>number(//codice)=//codice</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="491e8d84-be21-46f9-a241-2bac11424134" name="XPath Match 1"><con:configuration><path>//esito_operazione</path><content>OK</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer NI" id="9a8c0774-5b08-4f75-9b86-506aaf28369c"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false" disabled="false"><con:name>ni</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>tpkInsertAnagrafici</con:sourceStep><con:sourcePath>//codice</con:sourcePath><con:targetType>ni</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" name="tpkInsertAnagraficiCheckDupCodFis" id="b18d48b7-df40-43fb-985e-3450a6affbb1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertAnagrafici</con:operation><con:request name="tpkInsertAnagraficiCheckDupCodFis" id="bb0a8744-64dc-46eb-8023-aba1ca4c0683"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertAnagrafici>\r
+         <soggettoCorrente>\r
+             <cognome>${#Project#cognome}</cognome>
+            <nome>${#Project#nome}</nome>
+            <sesso>${#Project#sesso}</sesso>
+            <tipoSoggetto>I</tipoSoggetto>
+            <codiceFiscale>${#Project#codiceFiscale}</codiceFiscale>
+             <dal>${#Project#dal}</dal>
+\r
+         </soggettoCorrente>\r
+      </it:tpkInsertAnagrafici>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="e034513c-0509-4a7a-a901-154b57dd886a"/><con:assertion type="XPath Match" id="a708ac02-83c5-466f-b0b9-f687de3d962c" name="XPath Match"><con:configuration><path>//codice</path><content>A10080</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="b5121a3c-0a7a-4b60-b788-a8ccdd8fe446" name="XPath Match 1"><con:configuration><path>//esito_operazione</path><content>Esiste Anagrafica con uguale Codice Fiscale e Partita Iva nulla (*)</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="tpkInsertRecapitoRes" id="a1de6b82-eb62-47c2-b774-52c171366469"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertRecapito</con:operation><con:request name="tpkInsertRecapitoRes" id="34f59c95-46b7-4513-8ea6-bab66a929d7c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertRecapito>\r
+         <recapito>\r
+            <ni>${#TestCase#ni}</ni>
+            <tipoRecapito>RESIDENZA</tipoRecapito>
+            <dal>2017-12-10T00:00:00</dal>
+            <descrizione>Residenza estiva</descrizione>
+            <indirizzo>Via Verdi, 22</indirizzo>
+            <provincia>BOLOGNA</provincia>
+            <comune>Zola Predosa</comune>
+            <cap>40069</cap>
+            <presso>zio pino</presso>
+            <importanza>1</importanza>
+         </recapito>\r
+      </it:tpkInsertRecapito>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="221aa3b4-2add-4c80-86db-cd2f84961f74"/><con:assertion type="XPath Match" id="16242b17-ff5d-45c6-93d1-43f3cf98da91" name="XPath Match"><con:configuration><path>//esito_operazione</path><content>OK</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer ResId" id="1257c231-c8ef-489c-962e-bcdd1e01bdae"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>recapitoRes</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>tpkInsertRecapitoRes</con:sourceStep><con:sourcePath>//codice</con:sourcePath><con:targetType>idRecapitoRes</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" name="tpkInsertRecapitoResDup_FAIL" id="859c77aa-fc4c-4423-82ad-72ffd326a72b"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertRecapito</con:operation><con:request name="tpkInsertRecapitoResDup_FAIL" id="dab9fcb3-48d3-4680-8e8f-100ed6d0b441"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertRecapito>\r
+         <recapito>\r
+            <ni>${#TestCase#ni}</ni>
+            <tipoRecapito>RESIDENZA</tipoRecapito>
+            <dal>2017-12-10T00:00:00</dal>
+            <al>2018-12-10T00:00:00</al>
+            <descrizione>Residenza estiva duplicata per errore</descrizione>
+            <indirizzo>Via Maroni, 22</indirizzo>
+            <provincia>Bologna</provincia>
+            <comune>Zola Predosa</comune>
+            <cap>40069</cap>
+            <presso>zio tino</presso>
+            <importanza>1</importanza>
+         </recapito>\r
+      </it:tpkInsertRecapito>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="31b0caaa-f9c1-4a1a-b5b3-24917a24654c"/><con:assertion type="XPath Match" id="158e95af-70a7-42bc-8ee8-442f45688505" name="XPath Match"><con:configuration><path>//esito_operazione</path><content>Esiste già un record di tipo UNICO con uguale DAL.(RESIDENZA)</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="4888e5bc-c5cd-4979-baec-54b3c9c75d70" name="XPath Match 1"><con:configuration><path>//codice</path><content>A10061</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="tpkInsertContattoResMail" id="e082d077-0b19-44fb-ba8f-d10b9db77fa0"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertContatto</con:operation><con:request name="tpkInsertContattoResMail" id="c9fc20aa-1fdd-40d0-9c71-5a6ecc37adb7"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertContatto>\r
+         <contatto>\r
+             <idRecapito>${#TestCase#idRecapitoRes}</idRecapito>
+            <tipoContatto>MAIL</tipoContatto>
+            <dal>2017-12-10T00:00:00</dal>
+            <valore>mail@example.com</valore>
+            <note>Fake Mail</note>
+            <importanza>1</importanza>
+         </contatto>\r
+      </it:tpkInsertContatto>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="94473c4d-ca15-4a80-bbd8-65cd7c19eb06"/><con:assertion type="XPath Match" id="a142235c-6f75-4f0d-8d0d-6085dbde5c85" name="XPath Match"><con:configuration><path>//esito_operazione</path><content>OK</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="tpkInsertContattoResFax" id="88bb2ddd-09df-44ab-8827-d6508f1a6fa8"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertContatto</con:operation><con:request name="tpkInsertContattoResFax" id="d4c3c74c-4cbc-4969-bef4-586b9bcdc732"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertContatto>\r
+         <contatto>\r
+            <idRecapito>${#TestCase#idRecapitoRes}</idRecapito>
+            <tipoContatto>FAX</tipoContatto>
+            <dal>2015-12-10T00:00:00</dal>
+            <valore>051793289</valore>
+            <note>Fake Fax</note>
+            <importanza>2</importanza>
+         </contatto>\r
+      </it:tpkInsertContatto>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="e2d52f8b-587d-4ab0-b0fc-9c459352c285"/><con:assertion type="XPath Match" id="714dced7-463b-4c69-ae3c-ef672a529e42" name="XPath Match"><con:configuration><path>//esito_operazione</path><content>OK</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="tpkInsertRecapitoDom" id="9d8407d0-e395-4103-be7a-45d28bcd6b18"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertRecapito</con:operation><con:request name="tpkInsertRecapitoDom" id="aa15ee63-e8a3-4706-bb01-21a7be24b0e9"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertRecapito>\r
+         <recapito>\r
+             <ni>${#TestCase#ni}</ni>
+            <tipoRecapito>DOMICILIO</tipoRecapito>
+            <dal>2017-02-01T00:00:00</dal>
+            <descrizione>Residenza festiva</descrizione>
+            <indirizzo>Via Bianchi, 55</indirizzo>
+            <provincia>Bologna</provincia>
+            <comune>Bologna</comune>
+            <cap>40133</cap>
+            <presso>zio rino</presso>
+            <importanza>2</importanza>
+         </recapito>\r
+      </it:tpkInsertRecapito>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="4a986f3d-7b87-47db-8798-c21589e6c3b7"/><con:assertion type="XPath Match" id="e9aa5576-aa60-4a7f-889e-57bc70070d56" name="XPath Match"><con:configuration><path>//esito_operazione</path><content>OK</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer DomId" id="017e3a6b-a195-4113-bd7e-4f28e146fcf6"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>recapitoDom</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>tpkInsertRecapitoDom</con:sourceStep><con:sourcePath>//codice</con:sourcePath><con:targetType>idRecapitoDom</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" name="tpkInsertRecapitoDomDup_FAIL" id="eccbf604-8a34-499b-aab0-2b35ddb23d1f"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertRecapito</con:operation><con:request name="tpkInsertRecapitoDomDup_FAIL" id="2380306e-f73d-432a-b219-320dbfc18539"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertRecapito>\r
+         <recapito>\r
+            <ni>${#TestCase#ni}</ni>
+            <tipoRecapito>DOMICILIO</tipoRecapito>
+            <dal>2017-01-01T00:00:00</dal>
+            <al>2018-01-01T00:00:00</al>
+            <descrizione>Residenza festiva duplicata</descrizione>
+            <indirizzo>Via Gialli, 55</indirizzo>
+            <provincia>Bologna</provincia>
+            <comune>Bologna</comune>
+            <cap>40133</cap>
+            <presso>zio qino</presso>
+            <importanza>2</importanza>
+         </recapito>\r
+      </it:tpkInsertRecapito>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="e25aa0fc-a643-497e-9b5c-9a4acadb0bad"/><con:assertion type="XPath Match" id="ff172c55-0d12-4a97-8ae0-a385639f6c0a" name="XPath Match"><con:configuration><path>//esito_operazione</path><content>Impossibile inserire periodo sovrapposto a periodi esistenti</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="58320982-6d7d-4c52-a6f1-9406a3f6ae5a" name="XPath Match 1"><con:configuration><path>//codice</path><content>A10056</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="tpkInsertContattoDomTel" id="ace2ad01-596d-4e9a-b29c-22d7eec12316"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertContatto</con:operation><con:request name="tpkInsertContattoDomTel" id="42b0edbc-0878-4b09-a7a7-5a6d2fbc0c7e"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertContatto>\r
+         <contatto>\r
+            <idRecapito>${#TestCase#idRecapitoDom}</idRecapito>
+            <tipoContatto>TELEFONO</tipoContatto>
+            <dal>2017-12-10T00:00:00</dal>
+            <valore>0515555555</valore>
+            <note>Fake phone number</note>
+            <importanza>1</importanza>
+         </contatto>\r
+      </it:tpkInsertContatto>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="5fa62a68-eae2-4b5b-bbee-9a1e24b35258"/><con:assertion type="XPath Match" id="c68e6694-2565-4422-903d-a1bb8c5e9fb3" name="XPath Match"><con:configuration><path>//esito_operazione</path><content>OK</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="tpkInsertContattoDomMail" id="70955cc1-11c6-4741-8007-0ddc923c6b7e"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertContatto</con:operation><con:request name="tpkInsertContattoDomMail" id="1e09e5da-c593-4aea-8a9b-63c20bf896ce"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertContatto>\r
+         <contatto>\r
+            <idRecapito>${#TestCase#idRecapitoDom}</idRecapito>
+            <tipoContatto>MAIL</tipoContatto>
+            <dal>2017-12-10T00:00:00</dal>
+            <al>2017-12-12T00:00:00</al>
+            <valore>maildom@example.com</valore>
+            <note>Fake Mail Dom</note>
+            <importanza>3</importanza>
+         </contatto>\r
+      </it:tpkInsertContatto>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="a0503945-80c4-48c7-ac4e-1caa1ede5e5f"/><con:assertion type="XPath Match" id="23fb7532-c51a-466a-9e17-e171fe28e034" name="XPath Match"><con:configuration><path>//esito_operazione</path><content>OK</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="tpkInsertContattoDomMailDup-ERR" id="9bb40485-32a4-4e12-9445-88f6385bb4d2"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertContatto</con:operation><con:request name="tpkInsertContattoDomMailDup-ERR" id="d8ab50a1-2687-4fea-9263-cc0e3c9698d1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertContatto>\r
+         <contatto>\r
+            <idRecapito>${#TestCase#idRecapitoDom}</idRecapito>
+            <tipoContatto>MAIL</tipoContatto>
+            <dal>2017-12-01T00:00:00</dal>
+            <al>2017-12-21T00:00:00</al>
+            <valore>maildom@example.com</valore>
+            <note>Fake Mail Dom DUP</note>
+            <importanza>2</importanza>
+         </contatto>\r
+      </it:tpkInsertContatto>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="788bca7a-6e37-48b8-bb88-8ed350e327fc"/><con:assertion type="XPath Match" id="02a4d540-d736-409e-a2a7-f8d3fd3b1e87" name="XPath Match"><con:configuration><path>//codice</path><content>A10090</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="tpkInsertContattoDomImp-ERR" id="407ab08a-8ee1-48d8-8b26-a221b98c7a2c"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertContatto</con:operation><con:request name="tpkInsertContattoDomImp-ERR" id="0ceb7aaf-b237-450d-ba0a-9af2ccc86e0c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertContatto>\r
+         <contatto>\r
+            <idRecapito>${#TestCase#idRecapitoDom}</idRecapito>
+            <tipoContatto>MAIL</tipoContatto>
+            <dal>2017-12-07T00:00:00</dal>
+            <al>2017-12-20T00:00:00</al>
+            <valore>maildomDOUBLE@example.com</valore>
+            <note>Fake Mail Dom</note>
+            <importanza>3</importanza>
+         </contatto>\r
+      </it:tpkInsertContatto>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="1006ed6f-6289-42ca-8820-357a9cc49aa7"/><con:assertion type="XPath Match" id="f32b3c4c-82f1-4aeb-ac68-ad987c3cb1a7" name="XPath Match"><con:configuration><path>//esito_operazione</path><content>Impossibille inserire più record con uguale IMPORTANZA.(contatti)</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="7cf96ac5-b13b-46f2-a367-934553d3eb4f" name="XPath Match 1"><con:configuration><path>//codice</path><content>A10092</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="tpkInsertContattoDomMailDUP-OK" id="eb7d44fd-c55a-4899-833a-748c22b411e8"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertContatto</con:operation><con:request name="tpkInsertContattoDomMailDUP-OK" id="ebe3b6f2-3e68-45ea-95d6-956536995c08"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertContatto>\r
+         <contatto>\r
+           <idRecapito>${#TestCase#idRecapitoDom}</idRecapito>
+            <tipoContatto>MAIL</tipoContatto>
+            <dal>2017-12-31T00:00:00</dal>
+            <al>2018-12-31T00:00:00</al>
+            <valore>maildom@example.com</valore>
+            <note>Fake Mail Dom DUP</note>
+            <importanza>2</importanza>
+         </contatto>\r
+      </it:tpkInsertContatto>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="68d49d4a-f4cb-4c96-b3ba-c9c765ccafe4"/><con:assertion type="XPath Match" id="c18cbbc8-53ce-4854-b6a5-06f85bb66242" name="XPath Match"><con:configuration><path>//esito_operazione</path><content>OK</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="tpkInsertRecapitoGen" id="8a484a5e-c683-475b-b7ab-cadbc902c391"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertRecapito</con:operation><con:request name="tpkInsertRecapitoGen" id="648a7b95-86e0-4f99-b6ef-e4a041913f5d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertRecapito>\r
+         <recapito>\r
+            <ni>${#TestCase#ni}</ni>
+            <tipoRecapito>GENERICO</tipoRecapito>
+            <dal>2017-02-01T00:00:00</dal>
+            <descrizione>Residenza invernale</descrizione>
+            <indirizzo>Via Rossi, 25</indirizzo>
+            <provincia>Bologna</provincia>
+            <comune>Casalecchio di Reno</comune>
+            <cap>40033</cap>
+            <presso>zio gino</presso>
+            <importanza>4</importanza>
+         </recapito>\r
+      </it:tpkInsertRecapito>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="f2b18436-dcf1-4a2c-ae00-93f13418d132"/><con:assertion type="XPath Match" id="d50f3438-d505-4078-8ad9-bcd0fa2d660c" name="XPath Match"><con:configuration><path>//esito_operazione</path><content>OK</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="researchAnagrafeFinal" id="4b05b0b1-a3ce-45fd-b436-fd1de9c520d6"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>researchAnagrafe</con:operation><con:request name="researchAnagrafeFinal" id="4a079736-b2bf-43ce-ab76-3862310c5750"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:researchAnagrafe>
+         <codiceFiscale>${#Project#codiceFiscale}</codiceFiscale>
+      </it:researchAnagrafe>
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="256a3923-92e3-4e36-a7b8-d0becbae57fa"/><con:assertion type="XPath Match" id="01a589d2-051c-43b5-a1dd-13d8fd32c633" name="XPath Match"><con:configuration><path>//researchAnagrafeResult[1]/cognome</path><content>${#Project#cognome}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="74e518f2-04f8-4844-aeca-06a3ee4cc50f" name="XPath Match 1"><con:configuration><path>//researchAnagrafeResult[1]/nome</path><content>${#Project#nome}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="ccdfe4a3-f8b4-4b0e-9826-9b5839a510d7" name="XPath Match 2"><con:configuration><path>//researchAnagrafeResult[1]/codiceFiscale</path><content>${#Project#codiceFiscale}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="d20bfd75-ab61-4a8c-ac4e-194d8c47347c" name="XPath Match 3"><con:configuration><path>//researchAnagrafeResult[1]/sesso</path><content>${#Project#sesso}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="7a86405f-f64f-4d89-a577-c258467eb202" name="XPath Match 4"><con:configuration><path>//researchAnagrafeResult[1]/tipoSoggetto</path><content>PERSONA FISICA</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="7eb5ebe8-c46c-457c-b8f0-79c8829982b0" name="XPath Match 5"><con:configuration><path>//capResidenza</path><content>40069</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="70b54ce2-060e-4d1e-b8cf-f06d52e722ce" name="XPath Match 6"><con:configuration><path>//capDomicilio</path><content>40133</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="aef8e333-8296-4b08-acca-97399629221f" name="XPath Match 7"><con:configuration><path>//comuneResidenza</path><content>ZOLA PREDOSA</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="32b8aa05-2c72-418a-8e1a-b254cab92149" name="XPath Match 8"><con:configuration><path>//provinciaResidenza</path><content>BOLOGNA</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9b1db932-ad2d-402b-bdc4-a8a7ff2a1663" name="XPath Match 9"><con:configuration><path>//comuneDomicilio</path><content>BOLOGNA</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="aa569ed5-eb45-4511-87fb-150bef3e5a95" name="XPath Match 10"><con:configuration><path>//provinciaDomicilio</path><content>BOLOGNA</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>ni</con:name><con:value>84550</con:value></con:property><con:property><con:name>idRecapitoRes</con:name><con:value>70602</con:value></con:property><con:property><con:name>idRecapitoDom</con:name><con:value>70604</con:value></con:property></con:properties></con:testCase><con:testCase id="fcd255f1-6164-44c6-926e-942bd9df499b" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="tpkInsAnagraficiChecksTestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="ValidationChecksCognome" id="c78ca5e5-e6b1-4b3f-a147-1ba2c9e41907"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertAnagrafici</con:operation><con:request name="ValidationChecksCognome" id="a1a7fac5-e07a-455f-b5c7-a513a6b5d96e"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertAnagrafici>\r
+         <soggettoCorrente>\r
+             <cognome></cognome>
+            <nome>${#Project#nome}</nome>
+            <sesso>${#Project#sesso}</sesso>
+            <tipoSoggetto>I</tipoSoggetto>
+            <codiceFiscale>${#Project#codiceFiscale}</codiceFiscale>
+             <dal>${#Project#dal}</dal>
+         </soggettoCorrente>\r
+      </it:tpkInsertAnagrafici>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="2297b26e-42d6-4c75-a3c5-ef08e057477c"/><con:assertion type="XPath Match" id="677bb2e3-8406-4723-9ab3-b43a19d919fe" name="XPath Match"><con:configuration><path>//tpkInsertAnagraficiResult/codice</path><content>A10088</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="5e323fda-4ae5-49c2-8fcd-e453c8ea1bf4" name="XPath Match 1"><con:configuration><path>//esito_operazione</path><content>Campo obbligatorio (*)</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="9e4940dd-e623-4780-91ea-59eb3202ba08" name="Not Contains"><con:configuration><token>&lt;esito_operazione>OK&lt;/esito_operazione></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="ValidationChecksNome" id="18bbb448-9016-4261-ac22-62c74cc82085"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertAnagrafici</con:operation><con:request name="ValidationChecksNome" id="19bd40f7-0d63-4492-baaf-9999ffcaab74"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertAnagrafici>\r
+         <soggettoCorrente>\r
+             <cognome>${#Project#cognome}</cognome>
+            <nome></nome>
+            <sesso>${#Project#sesso}</sesso>
+            <tipoSoggetto>I</tipoSoggetto>
+            <codiceFiscale>${#Project#codiceFiscale}</codiceFiscale>
+             <dal>${#Project#dal}</dal>
+         </soggettoCorrente>\r
+      </it:tpkInsertAnagrafici>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="1f203e29-d1ec-4517-906b-6b539f5738f0"/><con:assertion type="XPath Match" id="da72125f-456d-476d-984f-1674deb5fd74" name="XPath Match"><con:configuration><path>//tpkInsertAnagraficiResult/codice</path><content>A10073</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="8ad8d8e4-1106-4aee-b2e6-b5038206ffcf" name="XPath Match 1"><con:configuration><path>//esito_operazione</path><content>Nome obbligatorio per PERSONA FISICA</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="13367a71-e379-47ba-855b-979f90a23929" name="Not Contains"><con:configuration><token>&lt;esito_operazione>OK&lt;/esito_operazione></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="ValidationChecksCodiceFiscale" id="d5a14a73-db74-4f1a-adc8-5c320dc6bf52"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertAnagrafici</con:operation><con:request name="ValidationChecksCodiceFiscale" id="9f20dcff-e9d5-4dd9-aefa-49b18cf8a2c1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertAnagrafici>\r
+         <soggettoCorrente>\r
+            <cognome>${#Project#cognome}</cognome>
+            <nome>${#Project#nome}</nome>
+            <sesso>${#Project#sesso}</sesso>
+            <tipoSoggetto>I</tipoSoggetto>
+            <codiceFiscale></codiceFiscale>
+             <dal>${#Project#dal}</dal>
+         </soggettoCorrente>\r
+      </it:tpkInsertAnagrafici>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="4b4ff3c6-7276-41a8-b59b-7dcdc4878c4a"/><con:assertion type="XPath Match" id="1ab1f2c9-0824-4750-be59-4aee499dbd09" name="XPath Match"><con:configuration><path>//tpkInsertAnagraficiResult/codice</path><content>A10072</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="67aa1b7e-4ac5-4af3-a90e-ed8bae6fd1e3" name="XPath Match 1"><con:configuration><path>//esito_operazione</path><content>Codice Fiscale obbligatorio per PERSONA FISICA</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="3a72ffb7-121c-4322-8d7d-e2030efec243" name="Not Contains"><con:configuration><token>&lt;esito_operazione>OK&lt;/esito_operazione></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="ValidationChecksTipoSoggetto" id="63900526-7577-4d50-af56-e4d692e64022"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertAnagrafici</con:operation><con:request name="ValidationChecksTipoSoggetto" id="72b7fde2-bf6b-41ef-9691-a83bda768033"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertAnagrafici>\r
+         <soggettoCorrente>\r
+             <cognome>${#Project#cognome}</cognome>
+            <nome>${#Project#nome}</nome>
+            <sesso>${#Project#sesso}</sesso>
+            <tipoSoggetto></tipoSoggetto>
+            <codiceFiscale>${#Project#codiceFiscale}</codiceFiscale>
+             <dal>${#Project#dal}</dal>
+         </soggettoCorrente>\r
+      </it:tpkInsertAnagrafici>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="68c75f57-3261-4c61-ae62-a9dfb88fedb4"/><con:assertion type="XPath Match" id="af34f743-d448-4086-a566-74e2a19a6d30" name="XPath Match"><con:configuration><path>//tpkInsertAnagraficiResult/codice</path><content>A10078</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="d81a52fe-a6a6-45e1-af4f-72ccb2fb6dd2" name="XPath Match 1"><con:configuration><path>//esito_operazione</path><content>Il tipo soggetto deve essere indicato</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="880e41d3-b88c-4256-9dc4-c4f5f49268a3" name="Not Contains"><con:configuration><token>&lt;esito_operazione>OK&lt;/esito_operazione></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="2b225e8c-3f05-44a9-b9d2-79bb1c485718" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="tpkInsAnagraficiChecksTestCaseGenerico" searchProperties="true"><con:settings/><con:testStep type="request" name="ValidationChecksCognome" id="2a8703dc-1947-41b3-85a8-a9f5fc8c9c76"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertAnagrafici</con:operation><con:request name="ValidationChecksCognome" id="1c24a8eb-b3e3-4a39-9bfa-73928e7e008a"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertAnagrafici>\r
+         <soggettoCorrente>\r
+           <cognome></cognome>
+            <nome>${#Project#nome}</nome>
+            <sesso>${#Project#sesso}</sesso>
+            <tipoSoggetto>G</tipoSoggetto>
+             <dal>${#Project#dal}</dal>
+         </soggettoCorrente>\r
+      </it:tpkInsertAnagrafici>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="5d878aa6-0e48-4c5f-a697-a8afaf3e0b61"/><con:assertion type="XPath Match" id="3340fd4f-24e1-407c-bc5c-de71056bcda0" name="XPath Match"><con:configuration><path>//tpkInsertAnagraficiResult/codice</path><content>A10088</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="32c9533a-23b6-4561-9010-dea33e2389e5" name="XPath Match 1"><con:configuration><path>//esito_operazione</path><content>Campo obbligatorio (*)</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="4088ba0e-0a56-4873-9ffe-c6d34b026655" name="Not Contains"><con:configuration><token>&lt;esito_operazione>OK&lt;/esito_operazione></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="ValidationChecksNome" id="c7b7a316-92a4-4829-af31-c6d3a7c83b3d"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertAnagrafici</con:operation><con:request name="ValidationChecksNome" id="6a46036b-f35a-44e0-801c-bcaca81b30c0"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertAnagrafici>\r
+         <soggettoCorrente>\r
+            <cognome>${#Project#cognome}</cognome>
+            <nome></nome>
+            <sesso>${#Project#sesso}</sesso>
+            <tipoSoggetto>G</tipoSoggetto>
+             <dal>${#Project#dal}</dal>
+         </soggettoCorrente>\r
+      </it:tpkInsertAnagrafici>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="f05c74ff-2582-4e9d-a766-984f681d3f54"/><con:assertion type="XPath Match" id="1c8e34f1-2627-4425-9af2-a97850c81965" name="XPath Match"><con:configuration><path>//esito_operazione</path><content>OK</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="ValidationChecksNoCodiceFiscale" id="4f703169-b983-4d72-a402-119b3d7024b8"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertAnagrafici</con:operation><con:request name="ValidationChecksNoCodiceFiscale" id="a1715bf1-c162-4a7d-848b-402a40d62a77"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertAnagrafici>\r
+         <soggettoCorrente>\r
+           <cognome>${#Project#cognome}</cognome>
+            <nome>${#Project#nome}</nome>
+            <sesso>${#Project#sesso}</sesso>
+            <tipoSoggetto>G</tipoSoggetto>
+            <codiceFiscale>${#Project#codiceFiscale}</codiceFiscale>
+             <dal>${#Project#dal}</dal>\r
+         </soggettoCorrente>\r
+      </it:tpkInsertAnagrafici>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="3c95425c-7972-4907-aeb4-79b7d8b19c7a"/><con:assertion type="XPath Match" id="a299adff-c235-4a6b-adbf-be3258b6bf35" name="XPath Match"><con:configuration><path>//tpkInsertAnagraficiResult/codice</path><content>A10071</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="3509cef5-6f4b-485c-8e80-63bb6a598c87" name="XPath Match 1"><con:configuration><path>//esito_operazione</path><content>Codice Fiscale/Partita Iva NON consentiti per soggetti generici</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="dbba5057-afb4-48cc-a9e9-6897164f882b" name="Not Contains"><con:configuration><token>&lt;esito_operazione>OK&lt;/esito_operazione></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="ValidationChecksSoloProv" id="c14d9561-c999-4b7d-9936-e962c0b35293"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertAnagrafici</con:operation><con:request name="ValidationChecksSoloProv" id="034b91e0-d38e-4341-804a-9985f9aeb2a4"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertAnagrafici>\r
+         <soggettoCorrente>\r
+            <cognome>${#Project#cognome}</cognome>
+            <nome>${#Project#nome}</nome>
+            <sesso>${#Project#sesso}</sesso>
+            <tipoSoggetto>G</tipoSoggetto>
+            <provinciaNascita>NAPOLI</provinciaNascita>
+             <dal>${#Project#dal}</dal>
+         </soggettoCorrente>\r
+      </it:tpkInsertAnagrafici>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="bf993700-e8a4-4662-a5d1-7339a1690926"/><con:assertion type="XPath Match" id="3805cdca-0332-43f7-962b-0fe73c24e8b2" name="XPath Match"><con:configuration><path>//tpkInsertAnagraficiResult/codice</path><content>A10041</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="5e0f73aa-2352-4474-9186-8aa014ebeb22" name="XPath Match 1"><con:configuration><path>//esito_operazione</path><content>Comune e Provincia: entrambi presenti o entrambi vuoti</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="b76f532e-7443-4441-96fc-81d8f37afc90" name="Not Contains"><con:configuration><token>&lt;esito_operazione>OK&lt;/esito_operazione></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="ValidationChecksSoloProv1" id="577dc974-87fd-4745-9e26-87d6ff65ce9b"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertAnagrafici</con:operation><con:request name="ValidationChecksSoloProv1" id="e5806907-f8b5-4fcd-8fa5-0218868db23e"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertAnagrafici>\r
+         <soggettoCorrente>\r
+            <cognome>${#Project#cognome}</cognome>
+            <nome>${#Project#nome}</nome>
+            <sesso>${#Project#sesso}</sesso>
+            <tipoSoggetto>G</tipoSoggetto>
+            <comuneNascita>BOLOGNA</comuneNascita>
+             <dal>${#Project#dal}</dal>
+         </soggettoCorrente>\r
+      </it:tpkInsertAnagrafici>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="ef52ce48-bf2c-4765-96c9-22b41d3e4398"/><con:assertion type="XPath Match" id="11c92fd3-258c-4544-94c8-ef5f7ea06238" name="XPath Match"><con:configuration><path>//tpkInsertAnagraficiResult/codice</path><content>A10021</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="0f2f2fac-4914-4fe8-a25e-052a37dd1778" name="XPath Match 1"><con:configuration><path>//esito_operazione</path><content>Non esiste riferimento su Comuni.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="57ad2303-d6f2-416a-bc8b-b77d09dbbeda" name="Not Contains"><con:configuration><token>&lt;esito_operazione>OK&lt;/esito_operazione></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="ValidationChecksProvComuneNoMatch" id="552e55d8-157d-4f84-9b51-b314b0f145bb"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertAnagrafici</con:operation><con:request name="ValidationChecksProvComuneNoMatch" id="970091fd-fb8e-4946-9894-6852e2596b0a"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertAnagrafici>\r
+         <soggettoCorrente>\r
+            <cognome>${#Project#cognome}</cognome>
+            <nome>${#Project#nome}</nome>
+            <sesso>${#Project#sesso}</sesso>
+            <tipoSoggetto>G</tipoSoggetto>
+            <provinciaNascita>NAPOLI</provinciaNascita>
+            <comuneNascita>BOLOGNA</comuneNascita>
+             <dal>${#Project#dal}</dal>
+         </soggettoCorrente>\r
+      </it:tpkInsertAnagrafici>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="5dc700f7-61eb-4b9b-b2e6-958ab0d9ea3a"/><con:assertion type="XPath Match" id="2703e25c-6e1d-4f8b-954a-925dd58fa3ab" name="XPath Match"><con:configuration><path>//tpkInsertAnagraficiResult/codice</path><content>A10021</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="7bd083b8-02f0-4ab9-a9b0-5e954adae4fd" name="XPath Match 1"><con:configuration><path>//esito_operazione</path><content>Non esiste riferimento su Comuni.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="9b63f722-b569-4b59-bc4d-ce54b9acae78" name="Not Contains"><con:configuration><token>&lt;esito_operazione>OK&lt;/esito_operazione></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="ValidationChecksProvComuneErr" id="8358d138-51d9-4d6f-ab37-2c454c0b1df9"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertAnagrafici</con:operation><con:request name="ValidationChecksProvComuneErr" id="898de756-27a4-4105-9082-f274bb0759ae"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertAnagrafici>\r
+         <soggettoCorrente>\r
+            <cognome>${#Project#cognome}</cognome>
+            <nome>${#Project#nome}</nome>
+            <sesso>${#Project#sesso}</sesso>
+            <tipoSoggetto>G</tipoSoggetto>
+            <provinciaNascita>Pippo</provinciaNascita>
+            <comuneNascita>Pluto</comuneNascita>
+            <dal>${#Project#dal}</dal>
+         </soggettoCorrente>\r
+      </it:tpkInsertAnagrafici>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="264c5c42-c268-4ae0-81cf-4a3ebe00ca50"/><con:assertion type="XPath Match" id="8059106c-1611-40f4-8841-372746c214df" name="XPath Match"><con:configuration><path>//tpkInsertAnagraficiResult/codice</path><content>A10091</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="31f54e2b-b5e7-4ad5-8632-1c33d90ee746" name="XPath Match 1"><con:configuration><path>//esito_operazione</path><content>Provincia non codificata</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="d12a9932-f639-4f8e-a950-01115434870e" name="Not Contains"><con:configuration><token>&lt;esito_operazione>OK&lt;/esito_operazione></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="2b9f71e2-abe5-458c-be8f-635c99cfcf4a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="tpkInsertAnagraficiEsteroTestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="tpkInsertAnagraficiEsteroPI_CEE_ERR" id="94052e37-96fb-4d1c-a538-5b2af4444510"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertAnagrafici</con:operation><con:request name="tpkInsertAnagraficiEsteroPI_CEE_ERR" id="7d2de330-30c0-4d43-af2e-2a02271f8232"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertAnagrafici>\r
+         <soggettoCorrente>\r
+            <cognome>GUALTI_ES</cognome>
+            <partitaIvaCee>123456789123456</partitaIvaCee>
+            <dal>2021-06-01T00:00:00</dal>
+         </soggettoCorrente>\r
+      </it:tpkInsertAnagrafici>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="fc996aab-abfd-450d-99d8-ea08933d5a37"/><con:assertion type="XPath Match" id="326db53a-3e70-4f45-ba64-320a35c647c0" name="XPath Match"><con:configuration><path>//tpkInsertAnagraficiResult/codice</path><content>-12899</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="tpkInsertAnagraficiEstero" id="5e8c1196-91a7-4223-9d96-7684be65bf1e"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertAnagrafici</con:operation><con:request name="tpkInsertAnagraficiEstero" id="6e3fb547-03ef-4176-aa60-92015e40c69b"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertAnagrafici>\r
+         <soggettoCorrente>\r
+            <cognome>${#Project#cognome}</cognome>
+            <nome>${#Project#nome}</nome>
+            <sesso>${#Project#sesso}</sesso>
+            <codiceFiscale>${#Project#codiceFiscaleCEE}</codiceFiscale>
+            <tipoSoggetto>I</tipoSoggetto>
+            <comuneNascita>Albania</comuneNascita>
+            <provinciaNascita>Albania</provinciaNascita>
+            <dataNascita>${#Project#dataNascita}</dataNascita>
+            <luogoNascita>Tirana</luogoNascita>
+             <dal>${#Project#dal}</dal>
+             <partitaIvaCee>${#Project#partitaIvaCEE}</partitaIvaCee>
+         </soggettoCorrente>\r
+      </it:tpkInsertAnagrafici>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="3870d2da-d8aa-44a5-81da-04a22ca1e639"/><con:assertion type="XPath Match" id="28700a6c-439c-45aa-a22a-873cc5809f91" name="XPath Match"><con:configuration><path>number(//codice)=//codice</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="5c278d18-48ac-440a-a028-5a2c0992f2d9" name="XPath Match 1"><con:configuration><path>//esito_operazione</path><content>OK</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="2d034ab8-9655-4fa8-9566-bde2aa06bb4f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="tpkInsertAnagrafe" searchProperties="true"><con:settings/><con:testStep type="request" name="insertSoggPersGiurPIvaObbl" id="44f96dcb-7026-4a39-b3da-2ae82d682986"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertAnagrafe</con:operation><con:request name="insertSoggPersGiurPIvaObbl" id="f6874b7a-ca24-48d5-a853-156703468524"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertAnagrafe>\r
+         <anagrafe>\r
+             <dal>${#Project#dal}</dal>
+            <cognome>${#Project#cognome}</cognome>
+            <tipoSoggetto>E</tipoSoggetto>
+            <comuneNascita>${#Project#comuneNascita}</comuneNascita>
+            <provinciaNascita>${#Project#provinciaNascita}</provinciaNascita>
+            <dataNascita>${#Project#dataNascita}</dataNascita>
+            <luogoNascita>${#Project#luogoNascita}</luogoNascita>
+            <note>Questo è un test!</note>
+            <indirizzoResidenza>via del lavoro, 17</indirizzoResidenza>
+            <comuneResidenza>Bologna</comuneResidenza>
+            <provinciaResidenza>BOLOGNA</provinciaResidenza>
+            <capResidenza>40123</capResidenza>
+            <descrizioneResidenza>Vecchia sede</descrizioneResidenza>
+            <importanzaResidenza>0</importanzaResidenza>
+            <indirizzoWeb>https://www.finmatica.it</indirizzoWeb>
+            <noteMail>Questa è una mail di test</noteMail>
+            <importanzaMail>1</importanzaMail>
+            <telefonoResidenza>+390516566561</telefonoResidenza>
+            <noteTelefonoResidenza>Questo è un numero di test</noteTelefonoResidenza>
+            <importanzaTelefonoResidenza>2</importanzaTelefonoResidenza>
+            <faxResidenza>+390516566562</faxResidenza>
+            <noteFaxResidenza>Questo è un numero fax di test</noteFaxResidenza>
+            <importanzaFaxResidenza>9</importanzaFaxResidenza>
+            <indirizzoDomicilio>via della liberazione, 15</indirizzoDomicilio>
+            <descrizioneDomicilio>Nuova sede</descrizioneDomicilio>
+            <comuneDomicilio>Bologna</comuneDomicilio>
+            <provinciaDomicilio>BoloGNA</provinciaDomicilio>
+            <capDomicilio>40122</capDomicilio>
+            <telefonoDomicilio>+390516566563</telefonoDomicilio>
+            <noteTelefonoDomicilio>Questo è un numero di test dom</noteTelefonoDomicilio>
+            <importanzaTelefonoDomicilio>0</importanzaTelefonoDomicilio>
+            <faxDomicilio>+390516566564</faxDomicilio>
+            <noteFaxDomicilio>Questo è un numero fax di test dom</noteFaxDomicilio>
+            <importanzaFaxDomicilio>5</importanzaFaxDomicilio>
+         </anagrafe>\r
+      </it:tpkInsertAnagrafe>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="2393f087-2e98-4c12-aeb5-e2ae8d46ce34"/><con:assertion type="XPath Match" id="9ff183ce-c0cf-43b6-9d94-89e4feb97ec9" name="XPath Match"><con:configuration><path>//codice</path><content>A10074</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="48cb922a-6a09-4d88-b89c-65e2643473c2" name="XPath Match 1"><con:configuration><path>//esito_operazione</path><content>Partita Iva obbligatoria per PERSONA GIURIDICA</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="insertSoggPersGiurConPIva" id="9eb9891c-1e17-4016-9b18-60719ce26cf7"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertAnagrafe</con:operation><con:request name="insertSoggPersGiurConPIva" id="294bd74f-6cd3-4f34-94ea-2ca5b53b5d27"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertAnagrafe>\r
+         <anagrafe>\r
+            <dal>${#Project#dal}</dal>
+            <cognome>${#Project#cognome}</cognome>
+            <tipoSoggetto>E</tipoSoggetto>
+            <partitaIva>${#Project#partitaIva}</partitaIva>
+            <comuneNascita>${#Project#comuneNascita}</comuneNascita>
+            <provinciaNascita>${#Project#provinciaNascita}</provinciaNascita>
+            <dataNascita>${#Project#dataNascita}</dataNascita>
+            <luogoNascita>${#Project#luogoNascita}</luogoNascita>
+            <note>Questo è un test!</note>
+            <indirizzoResidenza>via del lavoro, 17</indirizzoResidenza>
+            <comuneResidenza>Bologna</comuneResidenza>
+            <provinciaResidenza>BOLOGNA</provinciaResidenza>
+            <capResidenza>40123</capResidenza>
+            <descrizioneResidenza>Vecchia sede</descrizioneResidenza>
+            <importanzaResidenza>1</importanzaResidenza>
+            <indirizzoWeb>https://www.finmatica.it</indirizzoWeb>
+            <noteMail>Questa è una mail di test</noteMail>
+            <importanzaMail>1</importanzaMail>
+            <telefonoResidenza>+390516566561</telefonoResidenza>
+            <noteTelefonoResidenza>Questo è un numero di test</noteTelefonoResidenza>
+            <importanzaTelefonoResidenza>2</importanzaTelefonoResidenza>
+            <faxResidenza>+390516566562</faxResidenza>
+            <noteFaxResidenza>Questo è un numero fax di test</noteFaxResidenza>
+            <importanzaFaxResidenza>9</importanzaFaxResidenza>
+            <indirizzoDomicilio>via della liberazione, 15</indirizzoDomicilio>
+            <descrizioneDomicilio>Nuova sede</descrizioneDomicilio>
+            <comuneDomicilio>Bologna</comuneDomicilio>
+            <provinciaDomicilio>BoloGNA</provinciaDomicilio>
+            <capDomicilio>40122</capDomicilio>
+            <telefonoDomicilio>+390516566563</telefonoDomicilio>
+            <noteTelefonoDomicilio>Questo è un numero di test dom</noteTelefonoDomicilio>
+            <importanzaTelefonoDomicilio>1</importanzaTelefonoDomicilio>
+            <faxDomicilio>+390516566564</faxDomicilio>
+            <noteFaxDomicilio>Questo è un numero fax di test dom</noteFaxDomicilio>
+            <importanzaFaxDomicilio>5</importanzaFaxDomicilio>
+         </anagrafe>\r
+      </it:tpkInsertAnagrafe>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="617132ab-b9d2-4242-9d73-12d967eb6a10"/><con:assertion type="XPath Match" id="1fe794c7-a351-4123-9d33-741b4a585d4d" name="XPath Match"><con:configuration><path>//esito_operazione</path><content>OK</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="insertSoggPersGiurConPIvaDUP" id="7118b1ec-8060-41e7-81bf-c1b58a3dbbd6"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkInsertAnagrafe</con:operation><con:request name="insertSoggPersGiurConPIvaDUP" id="734f4245-c108-4bfe-9bc2-c1dc6aad46c9"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkInsertAnagrafe>\r
+         <anagrafe>\r
+             <dal>${#Project#dal}</dal>
+            <cognome>${#Project#cognome}</cognome>
+            <tipoSoggetto>E</tipoSoggetto>
+            <partitaIva>${#Project#partitaIva}</partitaIva>
+         </anagrafe>\r
+      </it:tpkInsertAnagrafe>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="d0d6a5d4-9904-459e-a37f-5446d7ba7646"/><con:assertion type="XPath Match" id="1caa916e-a705-43a8-8faa-37ec9ece43af" name="XPath Match"><con:configuration><path>//codice</path><content>A10079</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="ffddf1f6-42e9-4441-87d4-ea15a7456a8e" name="XPath Match 1"><con:configuration><path>//esito_operazione</path><content>Partita Iva già legata a diversa Anagrafica (*)</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="RecuperoAnagPIva" id="4ec4e42e-0a69-44a7-91fa-cdee9f388d32"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>researchAnagrafe</con:operation><con:request name="RecuperoAnagPIva" id="650b63af-a5fb-458a-b2c3-8366540515c0"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+   	<it:researchAnagrafe>
+         <partitaIva>${#Project#partitaIva}</partitaIva>
+         <cognome>${#Project#cognome}</cognome> 
+	</it:researchAnagrafe>
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="5af4f5c7-b19a-44e1-a4cd-688af4655111"/><con:assertion type="XPath Match" id="9026ad67-6859-4135-829f-b20dafb73ee2" name="XPath Match"><con:configuration><path>number(//ni)=//ni</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="f8d50eb1-1b85-46a3-9d83-1e650f627c69" name="XPath Match 1"><con:configuration><path>//cognome</path><content>${#Project#cognome}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="a3ee361a-ebb8-42f9-982c-3ef007811bab" name="XPath Match 2"><con:configuration><path>//dataNascita</path><content>${#Project#dataNascita}*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="b8685262-18a0-4ea4-bc3d-9c5aa66f598b" name="XPath Match 3"><con:configuration><path>//tipoSoggetto</path><content>PERSONA GIURIDICA</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="6a4d6822-8136-495f-b311-3c697529ca83" name="XPath Match 4"><con:configuration><path>//partitaIva</path><content>${#Project#partitaIva}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="e0532cc3-0b07-4bad-aa6c-7651bf713279" name="XPath Match 5"><con:configuration><path>//indirizzoResidenza</path><content>via del lavoro, 17</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="8bb54b03-411f-42dd-8b24-c1b116fdc46e" name="XPath Match 6"><con:configuration><path>number(//id_recapito_domicilio)=//id_recapito_domicilio</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="0865ccc5-d9df-4451-b0bd-ed71524a06a3" name="XPath Match 7"><con:configuration><path>number(//id_recapito_residenza)=//id_recapito_residenza</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer Ni" id="5c1f688a-2a0d-4dde-85ee-aac1783a1c53"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>ni</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>RecuperoAnagPIva</con:sourceStep><con:sourcePath>//ni</con:sourcePath><con:targetType>ni</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" name="updateAnagrafe" id="8502313a-b3f5-4020-a02d-48767819899d"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>tpkUpdateAnagrafe</con:operation><con:request name="updateAnagrafe" id="34ab5fa1-0bc4-4278-8780-638315cc8ed0"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:tpkUpdateAnagrafe>\r
+         <anagrafe>\r
+             <ni>${#TestCase#ni}</ni>
+            <dal>${#Project#dal}</dal>
+            <cognome>${#Project#cognome}</cognome>
+            <tipoSoggetto>E</tipoSoggetto>
+            <partitaIva>${#Project#partitaIva}</partitaIva>
+            <comuneNascita>${#Project#comuneNascita}</comuneNascita>
+            <provinciaNascita>${#Project#provinciaNascita}</provinciaNascita>
+            <dataNascita>${#Project#dataNascita}</dataNascita>
+            <luogoNascita>${#Project#luogoNascita}</luogoNascita>
+            <note>UPDATE Questo è un test!</note>
+            <indirizzoResidenza>via del lavoro, 18</indirizzoResidenza>
+            <comuneResidenza>Ferrara</comuneResidenza>
+            <provinciaResidenza>FERRARA</provinciaResidenza>
+            <capResidenza>44121</capResidenza>
+            <descrizioneResidenza>UPDATE Vecchia sede</descrizioneResidenza>
+            <importanzaResidenza>0</importanzaResidenza>
+            <indirizzoWeb>https://www.finmatica.it/update</indirizzoWeb>
+            <noteMail>UPDATE Questa è una mail di test</noteMail>
+            <importanzaMail>1</importanzaMail>
+            <telefonoResidenza>+390516566562</telefonoResidenza>
+            <noteTelefonoResidenza>UPDATE: Questo è un numero di test</noteTelefonoResidenza>
+            <importanzaTelefonoResidenza>2</importanzaTelefonoResidenza>
+            <faxResidenza>+390516566563</faxResidenza>
+            <noteFaxResidenza>UPDATE Questo è un numero fax di test</noteFaxResidenza>
+            <importanzaFaxResidenza>9</importanzaFaxResidenza>
+            <indirizzoDomicilio>via della liberazione, 16</indirizzoDomicilio>
+            <descrizioneDomicilio>UPDATE Nuova sede</descrizioneDomicilio>
+            <comuneDomicilio>Modena</comuneDomicilio>
+            <provinciaDomicilio>MODENA</provinciaDomicilio>
+            <capDomicilio>41100</capDomicilio>
+            <telefonoDomicilio>+390516566564</telefonoDomicilio>
+            <noteTelefonoDomicilio>UDPATE Questo è un numero di test dom</noteTelefonoDomicilio>
+            <importanzaTelefonoDomicilio>0</importanzaTelefonoDomicilio>
+            <faxDomicilio>+390516566565</faxDomicilio>
+            <noteFaxDomicilio>UPDATE Questo è un numero fax di test dom</noteFaxDomicilio>
+            <importanzaFaxDomicilio>5</importanzaFaxDomicilio>
+         </anagrafe>\r
+      </it:tpkUpdateAnagrafe>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="ba621c24-ff99-4837-9a3a-8331d3c59013"/><con:assertion type="XPath Match" id="09f16ae4-7ab4-41c8-bcc6-bf4669379f7c" name="XPath Match"><con:configuration><path>//esito_operazione</path><content>OK</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="RecuperoAnagPIvaPostUpdate" id="8870495d-e8fa-4a84-9b3e-73219feb208b"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>researchAnagrafe</con:operation><con:request name="RecuperoAnagPIvaPostUpdate" id="8042843d-fa2d-471c-9324-281f28a823ae"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+       <it:researchAnagrafe>
+       	<partitaIva>${#Project#partitaIva}</partitaIva>
+         	<cognome>${#Project#cognome}</cognome> 
+	</it:researchAnagrafe>
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="2668def9-ed79-47a7-86a2-4062256ce84d"/><con:assertion type="XPath Match" id="188d1d08-cf3d-456f-95ba-e92f875774eb" name="XPath Match"><con:configuration><path>number(//ni)=//ni</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="86be654b-2361-4308-bb0b-41a6da43a67b" name="XPath Match 1"><con:configuration><path>//cognome</path><content>${#Project#cognome}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="7fc957af-8957-4de6-841a-b6e73c824da7" name="XPath Match 2"><con:configuration><path>//dataNascita</path><content>${#Project#dataNascita}*</content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="d9f52783-8598-47ca-a80b-e6b1d921333a" name="XPath Match 3"><con:configuration><path>//tipoSoggetto</path><content>PERSONA GIURIDICA</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="2625af1e-6b53-4805-a139-ee7af7f66e4d" name="XPath Match 4"><con:configuration><path>//partitaIva</path><content>${#Project#partitaIva}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="e600093a-694d-4305-958a-7108909ca027" name="XPath Match 5"><con:configuration><path>//indirizzoResidenza</path><content>via del lavoro, 18</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="1a989962-a176-4712-8ae2-bd4c794fab77" name="XPath Match 6"><con:configuration><path>number(//id_recapito_domicilio)=//id_recapito_domicilio</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="3d49f2d7-2455-4f23-b59b-e5245f834d37" name="XPath Match 7"><con:configuration><path>number(//id_recapito_residenza)=//id_recapito_residenza</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>ni</con:name><con:value>83918</con:value></con:property></con:properties></con:testCase><con:testCase id="2bf37a13-f330-4d8e-902f-8b0c7f795df1" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getRecapitiContatti" searchProperties="true"><con:settings/><con:testStep type="request" name="getRecapitiTipoRecERR" id="59c5995e-ed1d-4697-b389-9505a5cc2a9f"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>getRecapiti</con:operation><con:request name="getRecapitiTipoRecERR" id="1c105231-7b45-4f51-b3a1-135b2d06d747"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:getRecapiti>\r
+         <ni>${#TestCase#ni}</ni>
+         <idTipoRecapito>1</idTipoRecapito>
+         <tipoRecapito>RESIDENZA</tipoRecapito>
+      </it:getRecapiti>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="244ab841-9997-4179-8dba-94b9da4cf2d1"/><con:assertion type="Simple NotContains" id="a05ed308-f822-4b38-9d8a-0bda923a5427" name="Not Contains"><con:configuration><token>&lt;idRecapito>*&lt;/idRecapito></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="getRecapitiForType" id="4961f229-2a8f-4aca-8ad6-e1c113296294"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>getRecapiti</con:operation><con:request name="getRecapitiForType" id="b43c1ec6-a7ed-4c61-8fd4-98682ad6d909"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:getRecapiti>\r
+         <ni>${#TestCase#ni}</ni>
+         <tipoRecapito>RESIDENZA</tipoRecapito>
+      </it:getRecapiti>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="22b5f4d5-c63c-4407-805b-b7080fe9085a"/><con:assertion type="XPath Match" id="35c84a49-5356-43a3-9f0c-0142e90a2b30" name="XPath Match"><con:configuration><path>number(//idRecapito)=//idRecapito</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="393fcaa9-e1b3-42af-874d-8d44e31fd9c8" name="XPath Match 1"><con:configuration><path>//tipoRecapito</path><content>RESIDENZA</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer IdRec" id="3cec7f29-eee1-41bc-8cc3-974f6f56862f"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>idRecapito</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>getRecapitiForType</con:sourceStep><con:sourcePath>//idRecapito</con:sourcePath><con:targetType>idRecapito</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" name="getContattoDaRec" id="59bd605d-82ef-47de-908b-d271bd0fc3b2"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>getContatti</con:operation><con:request name="getContattoDaRec" id="85a30512-bcb4-4e92-91c4-d871a0bc97ac"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:getContatti>\r
+         <idRecapito>${#TestCase#idRecapito}</idRecapito>
+      </it:getContatti>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="78d70a0c-b703-44f5-820a-f3af82593853"/><con:assertion type="XPath Match" id="9929ea95-4b4f-41d9-9a2b-80fa6317e0b3" name="XPath Match"><con:configuration><path>(//idContatto)=//idContatto</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="7c81cc5d-763f-45bb-9d9d-d49c54ef94e9" name="XPath Match 1"><con:configuration><path>(//idRecapito)=//idRecapito</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="getContattoPerTipoERR" id="954f4f47-4ab2-40b8-87c6-b8a729b39929"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ServiziAnagrafeServiceSoapBinding</con:interface><con:operation>getContatti</con:operation><con:request name="getContattoPerTipoERR" id="9d8701ae-a262-4b5c-955a-601d96569494"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://svi-at.finmatica.it/Anagrafica/services/serviziAnagrafe</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:it="it.finmatica.as4.ws">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <it:getContatti>\r
+         <idRecapito>${#TestCase#idRecapito}</idRecapito>
+         <idTipoContatto>3</idTipoContatto>
+         <tipoContatto>MIAL</tipoContatto>
+      </it:getContatti>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="82a82efe-04bc-467a-9187-c9898e2a5c04"/><con:assertion type="Simple NotContains" id="1c63dfcf-32e7-45e6-8af6-304031295abe" name="Not Contains"><con:configuration><token>&lt;idContatto>*&lt;/idContatto></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:username>AS4</con:username><con:password>LIBERAZIONE15</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>ni</con:name><con:value>83591</con:value></con:property><con:property><con:name>idRecapito</con:name><con:value>70029</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>cognome</con:name><con:value>GUALTIERI4_WS</con:value></con:property><con:property><con:name>nome</con:name><con:value>ROBERTA</con:value></con:property><con:property><con:name>sesso</con:name><con:value>F</con:value></con:property><con:property><con:name>codiceFiscale</con:name><con:value>GLTRRT86R41C997A</con:value></con:property><con:property><con:name>luogoNascita</con:name><con:value>BOLOGNA</con:value></con:property><con:property><con:name>comuneNascita</con:name><con:value>BOLOGNA</con:value></con:property><con:property><con:name>provinciaNascita</con:name><con:value>BOLOGNA</con:value></con:property><con:property><con:name>dataNascita</con:name><con:value>1986-10-01T00:00:00</con:value></con:property><con:property><con:name>dal</con:name><con:value>2021-05-11T00:00:00</con:value></con:property><con:property><con:name>partitaIva</con:name><con:value>11122233392</con:value></con:property><con:property><con:name>partitaIvaCEE</con:name><con:value>11122233344461</con:value></con:property><con:property><con:name>codiceFiscaleCEE</con:name><con:value>GLTRRT86R41C111B</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

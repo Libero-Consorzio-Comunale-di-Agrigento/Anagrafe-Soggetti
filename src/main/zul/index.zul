@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<?link rel="stylesheet" type="text/css" href="/css/anagrafica.css" ?>
+<?meta http-equiv="X-UA-Compatible" content="IE=edge"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <window closable="false" apply="org.zkoss.bind.BindComposer"
+            viewModel="@id('vm') @init('it.finmatica.as4.anagrafica.IndexViewModel')"
+            width="100%" height="100%">
+        <borderlayout vflex="1">
+            <north>
+                <hlayout hflex="1" sclass="intestazione">
+                	<hlayout sclass="logoApplicazione" hflex="3">
+                   		<vlayout>
+	                   		<label class="titoloApplicazione" value="@load(c:l('label.titoloApplicazione'))" />
+	                   		<label class="descrizioneApplicazione" value="@load(c:l('label.descrizioneApplicazione'))" />
+                   		</vlayout>
+	                </hlayout>
+                    <div hflex="1"/>
+                    <vlayout hflex="3" sclass="intestazioneDx">
+                        <hlayout>
+                            <button
+                                    width="200px"
+                                    image="/images/afc/presentation/30x30/anagrafe.png"
+                                    label="Consultazione ANPR e INAD"
+                                    onClick="@command('apriSezione', sezione='ANPR')"
+                                    visible="@load(vm.atService or vm.logAtService)"
+                                    sclass="@load(c:cat('afc-button-header fin-soggetti-btn', vm.selectedSezione eq 'ANPR' ? ' selected' : ''))"/>
+                            <button
+                                    image="/images/afc/presentation/30x30/user.png"
+                                    label="Elenco Soggetti"
+                                    onClick="@command('apriSezione', sezione='elencoSoggetti')"
+                                    visible="@load(vm.as4)"
+                                    sclass="@load(c:cat('afc-button-header fin-soggetti-btn', vm.selectedSezione eq 'elencoSoggetti' ? ' selected' : ''))"/>
+                            <button
+                                    image="/images/afc/presentation/30x30/archive.png"
+                                    label="Dizionari"
+                                    onClick="@command('apriSezione', sezione='dizionari')"
+                                    visible="@load(vm.as4)"
+                                    sclass="@load(c:cat('afc-button-header fin-dizionari-btn', vm.selectedSezione eq 'dizionari' ? ' selected' : ''))"/>
+                        </hlayout>
+                        <div class="utente">
+		                  	Utente: <a href="#" style="color: #000000"><label value="@load(c:cat3(vm.utente.nominativo, ' : ', vm.oggi))" onClick="@command('onOpenInformazioniUtente')"/></a> 
+	                   	 	<space></space>
+		                  	(<a onClick="@command('doLogout')">esci</a>)
+	                  	</div>
+                    </vlayout>
+
+                </hlayout>
+            </north>
+            <center id="container" >
+                <include atService="@load(vm.atService)" logAtService="@load(vm.logAtService)" as4="@load(vm.as4)" src="@load(vm.urlSezione)" />
+            </center>
+            <south>
+                <hlayout sclass="centro">
+                    <label value="©"/>
+                    <label value="@load(vm.versioneApplicazione)"/>
+                </hlayout>
+            </south>
+        </borderlayout>
+    </window>
+</zk>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<?link rel="stylesheet" type="text/css" href="/css/anagrafica.css" ?>
+<?meta http-equiv="X-UA-Compatible" content="IE=edge"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+
+    <style>
+        .checkbox-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        }
+    </style>
+
+    <window vflex="1" apply="org.zkoss.bind.BindComposer"
+            viewModel="@id('vm') @init('it.finmatica.as4.anpr.RicercaViewModel')">
+
+        <div align="center">
+            <label value="Consultazione ANPR e INAD" class="descrizioneApplicazione"/>
+        </div>
+
+        <grid>
+            <rows>
+                <row style="margin-bottom: 20px;">
+                    <cell hflex="1" align="center">
+                        <label value="Codice Fiscale"/>
+                        <space width="10px"/>
+                        <label sclass="mandatoryLabel" value="*"/>
+
+                    </cell>
+                    <cell hflex="5" align="left">
+                        <textbox value="@bind(vm.codiceFiscaleStr)" width="30%"
+                                 disabled="@load(vm.disabilita)" style="text-transform: uppercase;"
+                                maxlength="16"/>
+                    </cell>
+                </row>
+                <!--<row style="margin-bottom: 20px;">
+                    <cell colspan="2">
+                        <checkbox label="Seleziona tutti"
+                                  tooltiptext="Seleziona tutti i serivzi"
+                                  onClick="@command(selezionaTutti)"/>
+
+                    </cell>
+                </row> -->
+                <row style="margin-bottom: 50px;">
+                    <cell colspan="2">
+
+                        <div align="center">
+                            <label value="Informazioni"/>
+                        </div>
+                        <div sclass="checkbox-grid">
+
+                            <checkbox label="Generalità" checked="@load(vm.generalitaVisible)"
+                                      disabled="true"
+                                      tooltiptext="Servizio di Accertamento Generalità - C015"
+                                      visible="@load(vm.generalitaVisible)"/>
+                            <checkbox label="Decesso" checked="@bind(vm.decesso)"
+                                      disabled="@load(vm.disabilita)"
+                                      tooltiptext="Servizio di Accertamento dichiarazione Decesso - C016"
+                                      visible="@load(vm.decessoVisible)"/>
+                            <checkbox label="Matrimonio" checked="@bind(vm.matrimonio)"
+                                      disabled="@load(vm.disabilita)"
+                                      tooltiptext="Servizio di Accertamento Matrimonio - C017"
+                                      visible="@load(vm.matrimonioVisible)"/>
+                            <checkbox label="Cittadinanza" checked="@bind(vm.cittadinanza)"
+                                      disabled="@load(vm.disabilita)"
+                                      tooltiptext="Servizio di Accertamento Cittadinanza - C018"
+                                      visible="@load(vm.cittadinanzaVisible)"/>
+                            <checkbox label="Esistenza in vita" checked="@bind(vm.esistenza)"
+                                      disabled="@load(vm.disabilita)"
+                                      tooltiptext="Servizio di Accertamento Esistenza in vita - C019"
+                                      visible="@load(vm.esistenzaVisible)"/>
+                            <checkbox label="Residenza" checked="@bind(vm.residenza)"
+                                      disabled="@load(vm.disabilita)"
+                                      tooltiptext="Servizio di Accertamento Residenza - C020"
+                                      visible="@load(vm.residenzaVisible)"/>
+                            <checkbox label="Stato di famiglia" checked="@bind(vm.famiglia)"
+                                      disabled="@load(vm.disabilita)"
+                                      tooltiptext="Servizio di Accertamento Stato di famiglia - C021"
+                                      visible="@load(vm.famigliaVisible)"/>
+                            <checkbox label="Stato libero" checked="@bind(vm.libero)"
+                                      disabled="@load(vm.disabilita)"
+                                      tooltiptext="Servizio di Accertamento Stato libero - C022"
+                                      visible="@load(vm.liberoVisible)"/>
+                            <checkbox label="Vedovanza" checked="@bind(vm.vedovanza)"
+                                      disabled="@load(vm.disabilita)"
+                                      tooltiptext="Servizio di Accertamento Vedovanza - C023"
+                                      visible="@load(vm.famigliaVisible)"/>
+                            <checkbox label="Paternità" checked="@bind(vm.paternita)"
+                                      disabled="@load(vm.disabilita)"
+                                      tooltiptext="Servizio di Accertamento Paternità - C024"
+                                      visible="@load(vm.paternitaVisible)"/>
+                            <checkbox label="Maternità" checked="@bind(vm.maternita)"
+                                      disabled="@load(vm.disabilita)"
+                                      tooltiptext="Servizio di Accertamento Maternità - C025"
+                                      visible="@load(vm.maternitaVisible)"/>
+                            <checkbox label="Domicilio digitale - INAD" checked="@bind(vm.domicilioDigitale)"
+                                      disabled="@load(vm.disabilita)"
+                                      tooltiptext="Domicilio digitale - INAD"
+                                      visible="@load(vm.domicilioDigitaleVisible)"/>
+                        </div>
+
+                    </cell>
+                </row>
+
+                <row style="margin-bottom: 200px;" >
+                        <cell align="left" >
+                            <button label="Seleziona tutto" onClick="@command('selezionaTutti')"
+                                    disabled="@load(vm.disabilita)" image="/images/afc/16x16/check.png"/>
+                        </cell>
+                        <cell align="right" >
+                            <button label="Azzera filtri" onClick="@command('azzera')"
+                                    image="/images/afc/16x16/rubber.png"/>
+                            <button label="Ricerca" onClick="@command('ricerca')"
+                                    image="/images/afc/16x16/search.png"
+                                    disabled="@load(vm.disabilita)"/>
+                        </cell>
+                </row>
+            </rows>
+        </grid>
+
+        <space width="50px"/>
+        <div align="center">
+            <label value="Risultato"/>
+        </div>
+        <div align="center">
+            <textbox value="@bind(vm.risultato)" readonly="true" multiline="true"
+                     rows="25" style="width: 99%; resize: none;"/>
+        </div>
+
+
+    </window>
+</zk>

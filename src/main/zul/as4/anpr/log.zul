@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+<?link rel="stylesheet" type="text/css" href="/css/anagrafica.css" ?>
+<?meta http-equiv="X-UA-Compatible" content="IE=edge"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+    <window vflex="1" apply="org.zkoss.bind.BindComposer"
+            viewModel="@id('vm') @init('it.finmatica.as4.anpr.LogViewModel')">
+
+        <div align="center">
+            <label value="Consultazione Log Accessi ANPR e INAD" class="descrizioneApplicazione"/>
+        </div>
+
+        <grid>
+            <rows>
+                <row style="margin-bottom: 20px;">
+                    <cell hflex="1" align="center">
+                        <label value="Operatore"/>
+                    </cell>
+                    <cell hflex="5">
+                        <combobox disabled="@load(vm.disabilita)" width="30%"
+                                  model="@load(vm.operatori)"
+                                  selectedItem="@bind(vm.operatoreSelezionato)"
+                                  readonly="true">
+                            <template name="model">
+                                <comboitem label="@load(each.denominazione)"/>
+                            </template>
+                        </combobox>
+                    </cell>
+                </row>
+                <row style="margin-bottom: 20px;">
+                    <cell align="center">
+                        <label value="Data log dal"/>
+                        <space width="10px"/>
+                        <h:span class="mandatoryLabel">*</h:span>
+                    </cell>
+                    <cell>
+                        <datebox value="@bind(vm.dal)" disabled="@load(vm.disabilita)" format="dd/MM/yyyy"/>
+                        <space width="10px"/>
+                        <label value="al"/>
+                        <space width="10px"/>
+                        <h:span class="mandatoryLabel">*</h:span>
+                        <space width="10px"/>
+                        <datebox value="@bind(vm.al)" disabled="@load(vm.disabilita)" format="dd/MM/yyyy"/>
+                    </cell>
+                </row>
+                <row style="margin-bottom: 20px;">
+                    <cell colspan="2" align="right">
+                        <div>
+                            <button label="Azzera filtri" onClick="@command('azzera')"
+                                    image="/images/afc/16x16/rubber.png"/>
+                            <button label="Ricerca" onClick="@command('ricerca')" image="/images/afc/16x16/search.png"
+                                    disabled="@load(vm.disabilita)"/>
+                        </div>
+                    </cell>
+                </row>
+            </rows>
+        </grid>
+
+        <space width="50px"/>
+        <div>
+            <listbox model="@load(vm.listaLog)"
+                     emptyMessage="Nessun log presente" mold="paging" pagingPosition="top" pageSize="10"
+                     visible="@load(vm.listaLog ne null)" >
+                <listhead sizable="true">
+                    <listheader label="Operatore" width="25%"
+                                sort="auto(utente)" align="center"/>
+                    <listheader label="Servizio" width="20%"
+                                sort="auto(servizio)" align="center"/>
+                    <listheader label="Data richiesta" width="20%"
+                                sort="auto(dataRichiesta)" align="center"/>
+                    <listheader label="Codice Fiscale ricercato" width="25%"
+                                sort="auto(codiceFiscale)" align="center"/>
+                    <listheader label="Esito" width="10%"
+                                sort="auto(codiceFiscale)" align="center"/>
+                </listhead>
+                <template name="model" var="item">
+                    <listitem sclass="fin-row-list" disabled="true">
+                        <listcell label="@load(item.utente)"
+                                  hflex="1"/>
+                        <listcell label="@load(item.servizio)" hflex="1"/>
+                        <listcell
+                                label="@load(item.dataRichiesta)  @converter ('formatedDate', format='dd/MM/yyyy HH:mm:ss' )"
+                                hflex="1"/>
+                        <listcell label="@load(item.codiceFiscale)" hflex="1"/>
+                        <listcell>
+                            <image src="/images/afc/16x16/point_green.png" tooltiptext="@load(item.esito)"
+                                   visible="@load(item.esito eq 'POSITIVO')"/>
+                            <image src="/images/afc/16x16/point_red.png" tooltiptext="@load(item.esito)"
+                                   visible="@load(item.esito eq 'NEGATIVO')"/>
+                        </listcell>
+                    </listitem>
+                </template>
+            </listbox>
+        </div>
+        <space width="10px"/>
+        <div align="right">
+            <button label="Estrai csv" onClick="@command('estrai')" visible="@load(vm.listaLog ne null)"
+                    image="/images/afc/16x16/xls.png"/>
+        </div>
+
+    </window>
+</zk>
